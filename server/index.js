@@ -12,6 +12,9 @@ const PORT  = 3000
 const app = express()
 
 app.use(cors())
+app.use(express.json()); // JSON-Parser für den Request-Body
+app.use(express.urlencoded({ extended: true }))
+
 
 app.use('/user', userRouter)
 app.use('/questions', questionRouter)

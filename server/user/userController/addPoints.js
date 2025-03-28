@@ -2,6 +2,7 @@ import { User } from "../userModel/user.model.js";
 
 export const addPoints = async (req,res)=>{
     try {
+        console.log(req.body)
         const { pointsToAdd } = req.body;
         const username= req.params.username
         const updatedUser = await User.findOneAndUpdate(

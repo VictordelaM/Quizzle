@@ -3,7 +3,6 @@ import { User } from "../userModel/user.model.js";
 
 export const register = async (req,res)=>{
     try {   
-        console.log('backend', req.body)
             const { username, password} = req.body;
             if (!username || !password) {
                 res.sendStatus(403);

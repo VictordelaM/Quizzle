@@ -7,7 +7,6 @@ export const addAnswer = async (req,res)=>{
                 res.sendStatus(403);
                 return;
             }  
-            console.log(username)
             const user = await User.findOne({ username })
             user.answers.push({
                 answer: answer,
