@@ -1,0 +1,13 @@
+.answerBar {
+    height: 20px;
+    background-color: #4caf50;
+    transition: width 0.3s ease-in-out;
+    border-radius: 4px;
+}
+
+.correctAnswerBar {
+    height: 20px;
+    background-color: #4caf50;
+    transition: width 0.3s ease-in-out;
+    border-radius: 4px;
+}
