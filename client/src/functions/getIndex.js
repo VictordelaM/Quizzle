@@ -1,11 +1,15 @@
 import { fetchQuizData } from "./fetches/getQuizData"
+import { getSessionData } from "./fetches/sessionFetches"
 
-export const getIndex = async(quizId,activeQuestion)=>{
+export const getIndex = async(quizId,sessionId)=>{
+        const responseSession = await getSessionData(quizId, sessionId)
+        const responseQuiz = await fetchQuizData(quizId)
 
-    const response = await fetchQuizData(quizId)
-    const length = response.categories.length  
-    const index = response.categories.findIndex((cat)=>cat.categoryId == activeQuestion?.categoryId)
-    
-    const data = {index: index+1, length: length}
-    return data
-}
+        const category = responseQuiz?.categories?.find((cat)=>cat.categoryId == responseSession?.activeQuestion?.categoryId) 
+
+        const length = category?.questions.length
+        const index = category.questions.findIndex((question)=>question.questionId == responseSession?.activeQuestion?.questionId)
+        
+        const data = {index: index+1, length: length}
+        return data
+    }

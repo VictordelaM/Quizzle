@@ -31,7 +31,7 @@ const QuestionPage = () => {
 
     useEffect(()=>{
         const getIndexData = async()=>{
-            const indexData = await getIndex(quizId, activeQuestion)
+            const indexData = await getIndex(quizId, sessionId)
             setIndex(indexData)
         }
         getIndexData()
@@ -44,7 +44,7 @@ const QuestionPage = () => {
         <div>
             <Nav/>
             <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
-            {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId}/>}
+            {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}
             <Guesses activeQuestion={activeQuestion}/>
         </div>
     );

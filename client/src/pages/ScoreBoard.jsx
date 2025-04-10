@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { getSessionData } from '../functions/fetches/sessionFetches'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Nav from '../components/Nav'
 
 const ScoreBoard = () => {
     const [session, setSession] = useState(null)
     const {quizId, sessionId} = useParams()
+    const navigate = useNavigate()
     useEffect(() =>{
         
         const getData = async() =>{
@@ -14,6 +15,9 @@ const ScoreBoard = () => {
         }
         getData()
     })
+    const navigateCat = () =>{
+        navigate('/selectCategory/quiz/'+quizId+'/session/'+sessionId)
+    }
     return (
         <div>
             <Nav/>
@@ -26,6 +30,7 @@ const ScoreBoard = () => {
                     <p>{points}</p>
                 </div>
             })}
+            <button onClick={navigateCat}>next category</button>
         </div>
     )
 }

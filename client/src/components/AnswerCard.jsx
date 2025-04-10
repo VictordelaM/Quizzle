@@ -1,7 +1,7 @@
 import React, { useContext, useEffect , useState} from 'react'
 import { setAnswer } from '../functions/fetches/setAnswer.js';
 import './AnswerCard.css'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getUser } from '../functions/fetches/userfetches.js';
 
 
@@ -10,7 +10,7 @@ const AnswerCard = ({activeQuestion, index}) => {
   const [answered, setAnswered] = useState(false)
   const [aw, setAw] = useState(false)
   const [user, setUser] = useState(null)
-
+  const navigate = useNavigate()
   useEffect(()=>{
     const getUserData = async( )=>{
       const userData = await getUser()
@@ -32,7 +32,10 @@ const AnswerCard = ({activeQuestion, index}) => {
     event.preventDefault()
     const resp =await setAnswer(quizId, sessionId, activeQuestion?.questionId, event)
     setAw(resp)
-    // location.reload()
+    if(index?.index >= index?.length){
+      navigate('/scoreboard/quiz/'+quizId+'/session/'+ sessionId)
+    }
+    location.reload()
   }
 
 
