@@ -20,6 +20,7 @@ const SessionContainer = () => {
     }
     const create = async() =>{
         const session = createSession(quizId)
+        location.reload()
     }
 
     return (

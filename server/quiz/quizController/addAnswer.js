@@ -4,47 +4,43 @@ import jwt from 'jsonwebtoken'
 export const addAnswer = async (req, res) => {
     try {
         const { quizId, sessionId} = req.params;
-        const {answer, userImg, categoryId, category, questionId, } = req.body;
+        const {answer, userImg, categoryId, category, questionId,questionText } = req.body;
         const quiz = await Quiz.findOne({ quizId });
         const user = jwt.decode(req.cookies.token)
         
         if (!quiz) {
             return res.status(404).json({ error: "Quiz nicht gefunden" });
         }
-
-        const session = quiz.sessions.find(session => session.sessionId.toString() === sessionId);
+        const session = quiz?.sessions?.find(session => session.sessionId.toString() === sessionId);
 
         if (!session) {
             return res.status(404).json({ error: "Session nicht gefunden" });
         }
 
-        const log = session.log(log => log.questionId.toString() === questionId);
+        const log = session.log?.find(log => log.questionId === questionId);
 
         if(!log){
             session.log.push({
                 quesionId: questionId,
                 questionText:questionText,
-                category:category,
+                categoryName:category,
                 categoryId: categoryId,
                 answers:[{
-                    username: user.username,
-                    userId: user.userId,
+                    username: user?.username,
+                    userId: user?.id,
                     answer: answer,
-                    points: points
                 }]
             })
         }else {
             log.answers.push({
                 username: user.username,
-                userId: user.userId,
+                userId: user.id,
                 answer: answer,
-                points: points
             })
         }
-        
         session.activeQuestion.answers.push({
-            username: username,
-            userId: userId,
+            username: user?.username,
+            userId: user?.id,
             quesionId: questionId,
             answer: answer,
             userImg : userImg

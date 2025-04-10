@@ -9,8 +9,8 @@ const AddImg = () => {
         event.preventDefault()
         uploadImg(event.target.picture.files[0])
     }
-    const test  = async()=>{
-        navigate('/selectQuiz')
+    const refresh  = async()=>{
+        location.reload()
         // joinSession(quizId, sessionId)
     }
     useEffect(()=>{
@@ -20,7 +20,7 @@ const AddImg = () => {
         <div>
             <form onSubmit={upload}>
                 <input id="picture" name="picture" type="file" />
-                <button>upload</button>
+                <button onClick={refresh}>upload</button>
             </form>
         </div>
     )

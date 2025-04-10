@@ -27,10 +27,9 @@ const AnswerCard = ({activeQuestion, index}) => {
     })
   },[user])
 
-
   const setUserAnswer = async (event) =>{
     event.preventDefault()
-    const resp =await setAnswer(quizId, sessionId, activeQuestion?.questionId, event)
+    const resp =await setAnswer(quizId, sessionId, activeQuestion?.questionId, activeQuestion?.questionText, activeQuestion?.categoryId, activeQuestion?.category, event)
     setAw(resp)
     if(index?.index >= index?.length){
       navigate('/scoreboard/quiz/'+quizId+'/session/'+ sessionId)

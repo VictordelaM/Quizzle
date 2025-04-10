@@ -11,5 +11,7 @@ export const getIndex = async(quizId,sessionId)=>{
         const index = category.questions.findIndex((question)=>question.questionId == responseSession?.activeQuestion?.questionId)
         
         const data = {index: index+1, length: length}
+        console.log(responseSession?.  activeQuestion)
+        console.log(category.questions,responseSession?.activeQuestion?.questionId)
         return data
     }

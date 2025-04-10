@@ -9,7 +9,7 @@ const Next = ({activeQuestion, index}) => {
     const [quiz, setQuiz] = useState(null)
     const { quizId, sessionId } = useParams();
     const navigate = useNavigate()
- 
+
                                                                     //!quiz aus parent
         useEffect(() => {
             const actQue = async() =>{

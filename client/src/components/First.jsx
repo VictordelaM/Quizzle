@@ -14,7 +14,7 @@ const First = ({categoryId, quiz, sessionId}) => {
             options: category?.questions[0]?.options,
             questionId: category?.questions[0]?.questionId,
             questionText: category?.questions[0]?.questionText,
-            categoryName: category?.categoryName,
+            category: category?.categoryName,
             categoryId: category?.categoryId
         }
         changeActiveQuestion(quiz?.quizId, sessionId, firstQuestion)

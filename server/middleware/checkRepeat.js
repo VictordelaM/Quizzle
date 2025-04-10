@@ -25,10 +25,10 @@ export const checkRepeatAnswer = async (req,res,next)=>{
 
     try {
     const quiz = await Quiz.findOne({ quizId });
-
-    const session = quiz.sessions.find(session => session.sessionId.toString() === sessionId);
     
-    const userAnswer = session.answers.find(answer => answer.userId.toString() === userId);
+    const session = quiz.sessions.find(session => session.sessionId.toString() === sessionId);
+
+    const userAnswer = session.activeQuestion.answers.find(answer => answer.userId.toString() === userId);
 
         if (userAnswer) {
             return res.status(409).json({ error: "Antwort bereits gegeben" });
