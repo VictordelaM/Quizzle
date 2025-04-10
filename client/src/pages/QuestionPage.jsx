@@ -32,7 +32,6 @@ const QuestionPage = () => {
         <div>
             <ActiveQuestion activeQuestion={activeQuestion}/>
             {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId}/>}
-            {quiz &&<First categoryId='a9f1bc8f-5f68-48fc-8071-5c91a4c1da8d' quiz={quiz} sessionId={sessionId}/>}
             <Guesses activeQuestion={activeQuestion}/>
         </div>
     );

@@ -22,7 +22,6 @@ const AddImg = () => {
                 <input id="picture" name="picture" type="file" />
                 <button>upload</button>
             </form>
-            <button onClick={test}>test</button>
         </div>
     )
 }

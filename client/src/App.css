@@ -40,3 +40,10 @@
     object-fit: cover;   /* Schneidet das Bild schön zu */
     display: block;
 }
+.avatar {
+    width: 3%;
+    aspect-ratio: 1 / 1; /* Macht das Bild quadratisch */
+    border-radius: 50%;  /* Macht es rund */
+    object-fit: cover;   /* Schneidet das Bild schön zu */
+    display: block;
+}
