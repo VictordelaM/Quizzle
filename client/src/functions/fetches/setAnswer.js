@@ -3,7 +3,6 @@ import { getUser } from "./userfetches";
 
 export const setAnswer = async (quizId, sessionId, questionId,questionText, categoryId, category, event) =>{
     try{ 
-        console.log(event)
         const answerInput = event.target.answerInput.value;
         const userData = await getUser()
         const answer = {

@@ -31,10 +31,10 @@ const AnswerCard = ({activeQuestion, index}) => {
     event.preventDefault()
     const resp =await setAnswer(quizId, sessionId, activeQuestion?.questionId, activeQuestion?.questionText, activeQuestion?.categoryId, activeQuestion?.category, event)
     setAw(resp)
-    if(index?.index >= index?.length){
-      navigate('/scoreboard/quiz/'+quizId+'/session/'+ sessionId)
-    }
-    location.reload()
+    // if(index?.index >= index?.length){
+    //   navigate('/scoreboard/quiz/'+quizId+'/session/'+ sessionId)
+    // }
+    // location.reload()
   }
 
 

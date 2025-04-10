@@ -7,7 +7,6 @@ export const addAnswer = async (req, res) => {
         const {answer, userImg, categoryId, category, questionId,questionText } = req.body;
         const quiz = await Quiz.findOne({ quizId });
         const user = jwt.decode(req.cookies.token)
-        
         if (!quiz) {
             return res.status(404).json({ error: "Quiz nicht gefunden" });
         }
@@ -17,11 +16,10 @@ export const addAnswer = async (req, res) => {
             return res.status(404).json({ error: "Session nicht gefunden" });
         }
 
-        const log = session.log?.find(log => log.questionId === questionId);
-
+        const log = session?.log?.find(log => log.questionId === questionId);
         if(!log){
             session.log.push({
-                quesionId: questionId,
+                questionId: questionId,
                 questionText:questionText,
                 categoryName:category,
                 categoryId: categoryId,
