@@ -28,7 +28,7 @@ const Next = ({activeQuestion, index}) => {
         // 2️⃣ Frage-Index in der Kategorie finden
         const questionIndex = category?.questions?.findIndex(q => q.questionId === activeQuestion?.questionId
         );
-
+        console.log(questionIndex)
         if(index?.index >= index?.length){
             navigate('/scoreboard/quiz/'+quizId+'/session/'+ sessionId)
             return

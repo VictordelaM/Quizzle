@@ -15,7 +15,7 @@ const UserAnswer = () => {
     const actQue = async() =>{
       const aq = await getActiveQuestion(quizId, sessionId)
       setActiveQuestion(aq)
-      const indexData = await getIndex(quizId, aq)
+      const indexData = await getIndex(quizId, sessionId)
       setIndex(indexData)
     }
     actQue()
