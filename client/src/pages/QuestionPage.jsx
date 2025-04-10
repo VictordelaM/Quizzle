@@ -7,6 +7,7 @@ import First from "../components/First";
 import Guesses from "../components/Guesses";
 import { fetchQuizData } from "../functions/fetches/getQuizData";
 import { getIndex } from "../functions/getIndex";
+import Nav from "../components/Nav";
 
 const QuestionPage = () => {
 
@@ -41,6 +42,7 @@ const QuestionPage = () => {
 
     return (
         <div>
+            <Nav/>
             <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
             {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId}/>}
             <Guesses activeQuestion={activeQuestion}/>

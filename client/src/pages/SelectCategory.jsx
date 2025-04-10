@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchQuizData } from "../functions/fetches/getQuizData";
 import SelectCategoryCard from "../components/SelectCategoryCard";
+import Nav from "../components/Nav";
 
 const SelectCategory = () => {
     const { quizId, sessionId } = useParams();
@@ -18,6 +19,7 @@ const SelectCategory = () => {
     
     return (
         <div>
+            <Nav/>
             <h1>{quiz.title}</h1>
             {quiz.categories.map((category, catIndex) => (
                 <SelectCategoryCard key={catIndex} quiz={quiz} sessionId={sessionId} category={category}/>

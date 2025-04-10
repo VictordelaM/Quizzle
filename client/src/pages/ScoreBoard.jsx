@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getSessionData } from '../functions/fetches/sessionFetches'
 import { useParams } from 'react-router-dom'
+import Nav from '../components/Nav'
 
 const ScoreBoard = () => {
     const [session, setSession] = useState(null)
@@ -15,6 +16,7 @@ const ScoreBoard = () => {
     })
     return (
         <div>
+            <Nav/>
             {session?.participants?.map((participant)=>{
                 let points = 0
                 participant.points.map((p)=>{points += p.points})
