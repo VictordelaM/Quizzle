@@ -1,6 +1,6 @@
 export const getEveryQuiz = async () => {
     try {
-        const url = 'http://localhost:3000' + "/quiz/getEveryQuiz";
+        const url = import.meta.env.VITE_BACKEND_URL + "/quiz/getEveryQuiz";
         const response = await fetch(url, { method: "GET" });
         if (!response.ok) {
             throw new Error("Fehler beim Abrufen der Daten");

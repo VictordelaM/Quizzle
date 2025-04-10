@@ -3,25 +3,28 @@ import AnswerCard from '../components/AnswerCard'
 import { useParams } from "react-router-dom";
 import { getActiveQuestion } from '../functions/getActivQuestion';
 import Nav from '../components/Nav';
+import { getIndex } from '../functions/getIndex';
 
 
 const UserAnswer = () => {
   const { quizId, sessionId } = useParams();
   const [ activeQuestion, setActiveQuestion ] = useState(null)
+  const [ index, setIndex ] = useState(null)
 
   useEffect(()=>{
     const actQue = async() =>{
       const aq = await getActiveQuestion(quizId, sessionId)
       setActiveQuestion(aq)
+      const indexData = await getIndex(quizId, aq)
+      setIndex(indexData)
     }
     actQue()
   }, [])
-
   if (!activeQuestion) return <div className='loading'>Lädt...</div>;
   return (
     <div className='userBackground'>
         <Nav />
-        <AnswerCard activeQuestion={activeQuestion} />
+        <AnswerCard activeQuestion={activeQuestion} index={index}/>
     </div>
   )
 }

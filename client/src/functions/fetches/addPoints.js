@@ -1,15 +1,5 @@
 export const addPoints = async(bodyData)=>{
     try{
-        // const bodyData= {
-        //     answer: answer, 
-        //     userId: userId, 
-        //     category: category, 
-        //     categoryId: categoryId,
-        //     question: question, 
-        //     questionId: questionId,
-        //     points: points
-        // }
-        console.log('bodydata:', bodyData)
         const url = import.meta.env.VITE_BACKEND_URL + '/quiz/addPoints/quiz/'+quizId+'/session/'+sessionId
         const response = await fetch(url, {
             method: 'POST',

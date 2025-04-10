@@ -7,7 +7,6 @@ const Nav = () => {
     useEffect(()=>{
         const getUserData = async()=>{
             const data = await getUser()
-            console.log(data)
             setUser(data)
         }
         getUserData()
