@@ -4,28 +4,11 @@ import { addPoints } from '../functions/fetches/addPoints';
 import { mainContext } from '../context/MainProvider.jsx';
 import { calculateAnswers } from '../functions/calculateAnswers';
 import { getUserImage } from '../functions/fetches/userfetches';
-const Guesses = ({ activeQuestion }) => {
+const Guesses = ({ activeQuestion, winners, showWinners }) => {
     const [visibleAnswers, setVisibleAnswers] = useState({});
     const [maxBarValue, setMaxBarValue] = useState(100);
-    const [showWinners, setShowWinners] = useState(false)
-    const [winners, setWinners] = useState([])
     const{visibleCorrectAnswer, setVisibleCorrectAnswer} = useContext(mainContext)
     
-    useEffect(()=>{
-        const answers = activeQuestion?.answers.map((answer, index)=>{
-            return answer.answer
-        })
-        const winners = calculateAnswers(activeQuestion?.answers, activeQuestion?.correctAnswer)
-        setWinners(winners)
-        setMaxBarValue(Math.max(answers))
-    },[])
-
-
-    const handleShowWinners = () =>{
-        setShowWinners(true)
-    }
-
-
 
     const handleShowAnswerClick = (index, targetValue) => {
         if (visibleAnswers[index]) return; 
@@ -55,6 +38,8 @@ const Guesses = ({ activeQuestion }) => {
             }));
         }, 60);
     };
+
+
     return (
         <div className='flex'>
             {activeQuestion?.answers.map((answer, index)=>{ 
@@ -77,9 +62,6 @@ const Guesses = ({ activeQuestion }) => {
                             <img src={answer?.userImg} alt="Italian Trulli" className="relative inline-block h-12 w-12 !rounded-full  object-cover object-center" onClick={() => handleShowAnswerClick(index, answer.answer)}/>
                             <p className="username">{answer?.username}</p> 
                         </div>
-                        <button onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}>show corrext answer</button>
-                        <button onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}>show winners</button>
-
                     </div>
                 )
             })}

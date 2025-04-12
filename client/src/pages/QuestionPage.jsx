@@ -12,6 +12,7 @@ import Loupe from "../assets/loupe-search-svgrepo-com.svg"
 import Crown from "../assets/crown-minimalistic-svgrepo-com.svg"
 import Test from "../components/Test";
 import { mainContext } from "../context/MainProvider";
+import { calculateAnswers } from "../functions/calculateAnswers";
 
 
 const QuestionPage = () => {
@@ -21,7 +22,12 @@ const QuestionPage = () => {
     const [activeQuestion, setActiveQuestion] = useState(null);
     const [quiz, setQuiz] = useState(null)
     const [index, setIndex] = useState(null)
+    const [winners, setWinners] = useState([])
+    const [showWinners, setShowWinners] = useState(false)
+
+
     const{visibleCorrectAnswer, setVisibleCorrectAnswer} = useContext(mainContext)
+
 
 
     const handleShowCorrectAnswerClick = (index, targetValue) => {
@@ -74,6 +80,25 @@ const QuestionPage = () => {
     },[activeQuestion])
 
 
+
+    useEffect(()=>{
+        const answers = activeQuestion?.answers.map((answer, index)=>{
+            return answer.answer
+        })
+        if(activeQuestion){
+            const winners = calculateAnswers(activeQuestion?.answers, activeQuestion?.correctAnswer)
+            setWinners(winners)
+            setMaxBarValue(Math.max(answers))
+        }
+    },[activeQuestion])
+
+
+    const handleShowWinners = () =>{
+        setShowWinners(true)
+    }
+
+
+
     if (!activeQuestion || !quiz) return <p className="loading">Frage lädt...</p>;
 
     return (
@@ -82,13 +107,13 @@ const QuestionPage = () => {
             <div className="flex justify-center">
                 <div className="modInput">
                     <img src={Loupe} alt="lösung" className="w-10" onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}/>
-                    <img src={Crown} alt="Punkte" className="w-10"/>
+                    <img src={Crown} alt="Punkte" className="w-10" onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}/>
                 </div>
                 <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
                 {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}
             </div>
 
-            <Guesses activeQuestion={activeQuestion}/>
+            <Guesses activeQuestion={activeQuestion} winners={winners} showWinners={showWinners}/>
         </div>
     );
 };
