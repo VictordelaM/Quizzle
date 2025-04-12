@@ -92,7 +92,7 @@ const Guesses = ({ activeQuestion }) => {
         }, 60); // wie schnell der Zähler läuft
     };
     return (
-        <div>
+        <div className='guessesBox'>
             {activeQuestion?.answers.map((answer, index)=>{ 
                 const value = visibleAnswers[index] ?? 0;
                 const percentage = Math.min((value / maxBarValue) * 100, 100)       //for userAnswer
@@ -105,13 +105,15 @@ const Guesses = ({ activeQuestion }) => {
                             <p className="username">{answer?.username}</p>
                             <p className='answer'>{visibleAnswers[index] !== undefined ? visibleAnswers[index] : null}</p>
                         </div>
-                        <div className="avatar">
+                        <div>
+
                             {showWinners && (() => {
+                                
                             const winner = winners.find(w => w.userId === answer.userId);
                             return winner ? <p>{winner.points}</p> : null;
                         })()}
 
-                            <img src={answer?.userImg} alt="Italian Trulli"/> 
+                            <img src={answer?.userImg} alt="Italian Trulli" className="avatar"/> 
                         </div>
                         <button onClick={() => handleShowAnswerClick(index, answer.answer)}>show answer</button>
                         <button onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}>show corrext answer</button>

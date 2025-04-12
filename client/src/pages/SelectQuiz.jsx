@@ -15,13 +15,17 @@ const SelectQuiz = () => {
         
     },[])
     return (
-        <div>
+        <div className=''>
             <Nav/>
-            {
-                quizzes?.map((quiz, index)=>{
-                    return <SelectQuizCard key={index} quiz={quiz}/>
-                })
-            }
+            <div className="content">
+                <h3>Die Quizzes</h3>
+                {
+                    quizzes?.map((quiz, index)=>{
+                        return <SelectQuizCard key={index} quiz={quiz} />
+                    })
+                }
+            </div>
+
         </div>
     )
 }

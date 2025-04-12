@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 
 const QuizPage = () => {
     return (
-        <div>
+        <div className='page'>
             <Nav/>
             <SessionContainer/>
         </div>

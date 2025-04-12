@@ -14,9 +14,7 @@ const Index = () => {
 
     useEffect(()=>{
         const getUserData = async() =>{
-            console.log('test')
             const userData = await getUser()
-            console.log('test', userData)
             if(JSON.stringify(userData) != "{error: 'Internal server error'}"){
                 setUser(userData)
             }
@@ -32,7 +30,7 @@ const Index = () => {
 
         getQuizData()
     },[])
-    console.log(user)
+    
     if(!user)return <LoginPage/>
     if(!user?.pictureUrl)return <AddImg/>
     const nav = () =>{

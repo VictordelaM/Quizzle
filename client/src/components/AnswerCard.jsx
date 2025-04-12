@@ -34,23 +34,25 @@ const AnswerCard = ({activeQuestion, index}) => {
     // if(index?.index >= index?.length){
     //   navigate('/scoreboard/quiz/'+quizId+'/session/'+ sessionId)
     // }
-    // location.reload()
+    location.reload()
   }
 
 
   if (!activeQuestion) return <div className='loading'>Lädt...</div>;
 
   return (
-    <div className='questionContainer'>
-      <p>{index?.index+'/'+index?.length}</p>
-      <p className='question'>{activeQuestion?.questionText}</p>
-      {!answered && (
-        <form className='form' onSubmit={setUserAnswer}>
-          <input type="number" name="answerInput" id="answerInput" className='userInput'/>
-          <button className='userInput userButton'>Antworten</button>
-        </form>
-      )}
-      {answered && <p className='answered'>Antwort <span>{aw}</span> gespeichert!</p>}
+    <div className="content">
+      <div className='questionContainer container'>
+        <p>{index?.index+'/'+index?.length}</p>
+        <p className='question'>{activeQuestion?.questionText}</p>
+        {!answered && (
+          <form className='form' onSubmit={setUserAnswer}>
+            <input type="number" name="answerInput" id="answerInput" className='userInput'/>
+            <button className='userInput userButton'>Antworten</button>
+          </form>
+        )}
+        {answered && <p className='answered'>Antwort <span>{aw}</span> gespeichert!</p>}
+      </div>
     </div>
   )
 }

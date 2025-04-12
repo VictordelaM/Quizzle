@@ -7,7 +7,7 @@ const SelectQuizCard = ({quiz}) => {
         navigate('/quiz/'+quiz?.quizId)
     }
     return (
-        <div onClick={nav}>
+        <div onClick={nav} className='quizCard'>
             <p>{quiz?.title}</p>
         </div>
     )

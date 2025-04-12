@@ -24,14 +24,20 @@ const SessionContainer = () => {
     }
 
     return (
-        <div>
-            {quiz?.sessions?.map((session, index)=>{
-                return <div key={index}>
-                    {session._id}
-                    <button onClick={()=>join(session.sessionId)}>join Session</button>
-                </div>
-            })}
-            <button onClick={create}>create session</button>
+        <div className="component">
+            <div className='content'>
+                {quiz?.sessions?.map((session, index)=>{
+                    return <div key={index} className='container'>
+                        {'session '+ (index+1)}
+                        <p>participants</p>
+                        {session.participants.map((participant, index)=>{
+                            return <p>{participant.username}</p>
+                        })}
+                        <button onClick={()=>join(session.sessionId)}>join Session</button>
+                    </div>
+                })}
+                <button onClick={create}>create session</button>
+            </div>
         </div>
     )
 }

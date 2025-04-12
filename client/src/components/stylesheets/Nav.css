@@ -1,0 +1,28 @@
+.avatar {
+    width: 90%;
+    height: 90%;
+    aspect-ratio: 1 / 1; /* Macht das Bild quadratisch */
+    border-radius: 50%;  /* Macht es rund */
+    object-fit: cover;   /* Schneidet das Bild schön zu */
+    display: block;
+    margin-left: 15%;
+}
+
+.navBox {
+    display: flex;
+    background-color: var(--primary-colour);
+    height: 5vh;
+    justify-content: space-between;
+}
+
+.navigation{
+    display: flex;
+    
+}
+
+.userCard{
+    display: flex;
+    align-items: center;
+    margin: 0 5% ;
+    border: 2px solid black;
+}

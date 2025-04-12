@@ -8,6 +8,9 @@ import Guesses from "../components/Guesses";
 import { fetchQuizData } from "../functions/fetches/getQuizData";
 import { getIndex } from "../functions/getIndex";
 import Nav from "../components/Nav";
+import Loupe from "../assets/loupe-search-svgrepo-com.svg"
+import Crown from "../assets/crown-minimalistic-svgrepo-com.svg"
+
 
 const QuestionPage = () => {
 
@@ -41,10 +44,17 @@ const QuestionPage = () => {
     if (!activeQuestion || !quiz) return <p className="loading">Frage lädt...</p>;
 
     return (
-        <div>
+        <div className='page'>
             <Nav/>
-            <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
-            {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}
+            <div className="quizBox">
+                <div className="modInput">
+                    <img src={Loupe} alt="lösung" className="questionIcon"/>
+                    <img src={Crown} alt="Punkte" className="questionIcon"/>
+                </div>
+                <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
+                {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}
+            </div>
+
             <Guesses activeQuestion={activeQuestion}/>
         </div>
     );

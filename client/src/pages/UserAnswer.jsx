@@ -22,7 +22,7 @@ const UserAnswer = () => {
   }, [])
   if (!activeQuestion) return <div className='loading'>Lädt...</div>;
   return (
-    <div className='userBackground'>
+    <div className='userBackground page'>
         <Nav />
         <AnswerCard activeQuestion={activeQuestion} index={index}/>
     </div>

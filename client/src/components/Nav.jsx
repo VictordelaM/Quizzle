@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getUser } from '../functions/fetches/userfetches'
-
+import home from '../assets/home-svgrepo-com.svg'
+import leftArrow from '../assets/arrow-sm-left-svgrepo-com.svg'
+import './stylesheets/Nav.css'
 const Nav = () => {
     const [user, setUser] = useState(null);
 
@@ -15,15 +17,11 @@ const Nav = () => {
     return (
         <div className="navBox">
             <div className="navigation">
-                <div className="navArrow">
-                    {/* <svg></svg> */}
-                </div>
-                <div className="home">
-                    {/* <svg></svg> */}
-                </div>
+                <img src={leftArrow} alt="home" className='icon'/>
+                <img src={home} alt="home" className='icon'/>
             </div>
             <div className='userCard'>
-                <p>{user?.username}</p>
+                <p className='userName'>{user?.username}</p>
                 <img className='avatar' src={user?.pictureUrl} alt="no img" />       
             </div>
         </div>
