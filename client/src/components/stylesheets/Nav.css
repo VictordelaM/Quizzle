@@ -1,9 +1,9 @@
 .avatar {
     width: 90%;
     height: 90%;
-    aspect-ratio: 1 / 1; /* Macht das Bild quadratisch */
-    border-radius: 50%;  /* Macht es rund */
-    object-fit: cover;   /* Schneidet das Bild schön zu */
+    aspect-ratio: 1 / 1; 
+    border-radius: 50%;  
+    object-fit: cover;   
     display: block;
     margin-left: 15%;
 }

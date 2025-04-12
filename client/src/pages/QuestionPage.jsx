@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getActiveQuestion } from "../functions/getActivQuestion";
 import ActiveQuestion from "../components/ActiveQuestion";
@@ -10,14 +10,47 @@ import { getIndex } from "../functions/getIndex";
 import Nav from "../components/Nav";
 import Loupe from "../assets/loupe-search-svgrepo-com.svg"
 import Crown from "../assets/crown-minimalistic-svgrepo-com.svg"
+import Test from "../components/Test";
+import { mainContext } from "../context/MainProvider";
 
 
 const QuestionPage = () => {
-
+    const [maxBarValue, setMaxBarValue] = useState(100);
+    
     const { quizId, sessionId } = useParams();
     const [activeQuestion, setActiveQuestion] = useState(null);
     const [quiz, setQuiz] = useState(null)
     const [index, setIndex] = useState(null)
+    const{visibleCorrectAnswer, setVisibleCorrectAnswer} = useContext(mainContext)
+
+
+    const handleShowCorrectAnswerClick = (index, targetValue) => {
+
+        let currentValue = 0;
+        const calcStep = () => {
+            if (targetValue <= 10) return 1;
+            if (targetValue <= 100) return 3;
+            if (targetValue <= 1000) return 45;
+            if (targetValue <= 10000) return 103;
+            if (targetValue <= 100000) return 5741;
+            if (targetValue <= 1000000) return 94632;
+            if (targetValue <= 10000000) return 654846;
+            if (targetValue <= 100000000) return 9689731;
+            return 94638791;
+        };
+        const step = calcStep();
+        const interval = setInterval(() => {
+            currentValue += step;
+            if (currentValue >= maxBarValue) {
+                setMaxBarValue(currentValue)
+            }
+            if (currentValue >= targetValue) {
+                currentValue = targetValue;
+                clearInterval(interval);
+            }
+            setVisibleCorrectAnswer(currentValue);
+        }, 60); 
+    };
 
     useEffect(() => {
         const actQue = async() =>{
@@ -46,10 +79,10 @@ const QuestionPage = () => {
     return (
         <div className='page'>
             <Nav/>
-            <div className="quizBox">
+            <div className="flex justify-center">
                 <div className="modInput">
-                    <img src={Loupe} alt="lösung" className="questionIcon"/>
-                    <img src={Crown} alt="Punkte" className="questionIcon"/>
+                    <img src={Loupe} alt="lösung" className="w-10" onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}/>
+                    <img src={Crown} alt="Punkte" className="w-10"/>
                 </div>
                 <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
                 {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}

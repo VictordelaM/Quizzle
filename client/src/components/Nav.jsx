@@ -16,8 +16,9 @@ const Nav = () => {
 
     return (
         <div className="navBox">
+            
             <div className="navigation">
-                <img src={leftArrow} alt="home" className='icon'/>
+                <img src={leftArrow} alt="home" className='icon '/>
                 <img src={home} alt="home" className='icon'/>
             </div>
             <div className='userCard'>

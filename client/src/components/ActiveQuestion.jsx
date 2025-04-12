@@ -5,6 +5,8 @@ import { mainContext } from "../context/MainProvider";
 const ActiveQuestion = ({activeQuestion, index}) => {
 
     const{visibleCorrectAnswer, setVisibleCorrectAnswer} = useContext(mainContext)
+
+
     return (
         <div className="questionContainer">
             <div className='empty'></div>

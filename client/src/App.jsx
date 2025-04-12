@@ -9,6 +9,7 @@ import SelectQuiz from './pages/SelectQuiz'
 import SelectCategory from './pages/SelectCategory'
 import QuizPage from './pages/QuizPage'
 import ScoreBoard from './pages/ScoreBoard'
+import Test from './components/Test'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/devInput" element= {<DevInput/>}/>
         <Route path="/selectQuiz" element= {<SelectQuiz/>}/>
         <Route path="/scoreBoard/quiz/:quizId/session/:sessionId" element={<ScoreBoard />} />
+        <Route path="/test" element={<Test />} />        
       </Routes>
     </>
   )
