@@ -17,6 +17,7 @@
 
 .test{
     border: 2px solid red;
+    background-color: red;
 }
     .container{
         display: flex;

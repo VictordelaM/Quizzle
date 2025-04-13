@@ -20,10 +20,16 @@ const SelectCategory = () => {
     return (
         <div>
             <Nav/>
-            <h1>{quiz.title}</h1>
-            {quiz.categories.map((category, catIndex) => (
-                <SelectCategoryCard key={catIndex} quiz={quiz} sessionId={sessionId} category={category}/>
-            ))}
+            <div className="flex flex-col items-center  h-[90vh] ">
+                <h1>{quiz.title}</h1>
+                <div className="flex items-center flex-wrap h-[80%] w-[90%] gap-[15%]">
+                    {quiz.categories.map((category, catIndex) => (
+                        <SelectCategoryCard key={catIndex} quiz={quiz} sessionId={sessionId} category={category}/>
+                    ))}
+                </div>
+                
+            </div>
+            
         </div>
     );
 };

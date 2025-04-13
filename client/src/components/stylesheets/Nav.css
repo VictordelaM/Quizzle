@@ -13,6 +13,7 @@
     background-color: var(--primary-colour);
     height: 5vh;
     justify-content: space-between;
+    margin-bottom: 5vh;
 }
 
 .navigation{

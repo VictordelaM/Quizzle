@@ -21,35 +21,19 @@ const ScoreBoard = () => {
         navigate('/selectCategory/quiz/'+quizId+'/session/'+sessionId)
     }
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col min-h-screen bg-gray-50'>
             <Nav/>
-            <div className='flex justify-evenly h-screen '>
-                <table className="border-collapse border border-gray-400 ...">
-                        <thead>
-                            <tr>
-                            <th className="border border-gray-300 ...">Teilnehmer</th>
-                            <th className="border border-gray-300 ...">Punkte</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
+            <div className='flex flex-wrap justify-center gap-6 p-6 pt-12'>
                     {session?.participants?.map((participant)=>{
                         let points = 0
                         
                         participant.points.map((p)=>{points += p.points})
-                        return <tr key={participant._id}>
-                            <td className="border border-gray-300 ..."><img className='avatar' url={participant.userImg} ></img>{participant.username}</td>
-                            <td className="border border-gray-300 ...">Detroit</td>
-                            </tr>
-                        
-                        // <div key={participant._id} className="flex flex-col test w-30/100">
-                        //     <img className='avatar' url={participant.userImg} ></img>
-                        //     <p>{participant.username}</p>
-                        //     <p>{points}</p>
-                        // </div>
+                        return <div key={participant._id} className="flex flex-col items-center w-full sm:w-[45%] md:w-[20%] lg:w-[20%] bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <img className='w-12 h-12 object-cover rounded-full mb-3' url={participant.userImg} ></img>
+                            <p>{participant.username}</p>
+                            <p>{points}</p>
+                        </div>
                     })}
-                    </tbody>
-                </table>
                 <button onClick={navigateCat}>next category</button>
             </div>
             
