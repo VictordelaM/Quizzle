@@ -4,6 +4,7 @@ import LoginPage from './LoginPage'
 import { getEveryQuiz } from '../functions/fetches/getEveryQuiz'
 import AddImg from '../components/AddImg'
 import { useNavigate } from "react-router-dom"
+import Nav from '../components/Nav'
 
 
 const Index = () => {
@@ -31,14 +32,19 @@ const Index = () => {
         getQuizData()
     },[])
     
-    if(!user)return <LoginPage/>
+    if(!user){
+        navigate('/login')
+    }
     if(!user?.pictureUrl)return <AddImg/>
     const nav = () =>{
         navigate('/selectQuiz')
     }
     return (
         <div>
+            <Nav/>
+            <div>
             <button onClick={nav}>select your Quiz</button>
+            </div>
         </div>
     )
 }

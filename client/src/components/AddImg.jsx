@@ -17,10 +17,14 @@ const AddImg = () => {
 
     },[])
     return (
-        <div>
-            <form onSubmit={upload}>
-                <input id="picture" name="picture" type="file" />
-                <button onClick={refresh}>upload</button>
+        <div className='flex flex-col'>
+            <form onSubmit={upload} className='flex flex-col items-center justify-center'>
+                <div className='flex flex-col  items-center justify-center'>
+                    <label htmlFor="pictur" >Lade hier dein Profilbild hoch</label>
+                    <input id="picture" name="picture" type="file" className='w-[80%]'/>
+                </div>
+
+                <button onClick={refresh} className='border w-[30%]'>upload</button>
             </form>
         </div>
     )

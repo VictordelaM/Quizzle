@@ -10,6 +10,8 @@ import SelectCategory from './pages/SelectCategory'
 import QuizPage from './pages/QuizPage'
 import ScoreBoard from './pages/ScoreBoard'
 import Test from './components/Test'
+import RegisterPage from './pages/RegisterPage'
+import UserSettingPage from './pages/UserSettingPage'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="/userAnswer/:quizId/session/:sessionId" element={<UserAnswer/>} />
         <Route path="/question/:quizId/:sessionId" element={<QuestionPage />} />
         <Route path="/login" element= {<LoginPage/>}/>
+        <Route path="/register" element= {<RegisterPage/>}/>
+        <Route path="/userSettings" element= {<UserSettingPage/>}/>
         <Route path="/devInput" element= {<DevInput/>}/>
         <Route path="/selectQuiz" element= {<SelectQuiz/>}/>
         <Route path="/scoreBoard/quiz/:quizId/session/:sessionId" element={<ScoreBoard />} />

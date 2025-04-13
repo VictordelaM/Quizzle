@@ -47,7 +47,7 @@ export const loginFetch = async(event) =>{
         throw error;
     }
 }
-
+//!passwort noch verschlüsseln
 export const registerFetch = async(event) =>{
     try {
         const username = event.target.inputUsername.value
@@ -59,6 +59,7 @@ export const registerFetch = async(event) =>{
         body: JSON.stringify(userData),
         credentials: "include"
         });
+        console.log(response)
         if (!response.ok) {
         throw new Error('Fehler beim Login');
         }

@@ -1,8 +1,8 @@
 import React from 'react'
-import UserSettingForm from './UserSettingForm'
-import Nav from './Nav'
+import UserSettingForm from '../components/UserSettingForm'
+import Nav from '../components/Nav'
 
-const Test = () => {
+const UserSettingPage = () => {
     return (
         <div>
             <Nav/>
@@ -14,4 +14,4 @@ const Test = () => {
     )
 }
 
-export default Test
+export default UserSettingPage
