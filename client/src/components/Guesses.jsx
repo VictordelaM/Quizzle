@@ -41,7 +41,7 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
 
 
     return (
-        <div className='flex'>
+        <div className='flex justify-evenly bottom-10'>
             {activeQuestion?.answers.map((answer, index)=>{ 
                 const value = visibleAnswers[index] ?? 0;
                 const percentage = Math.min((value / maxBarValue) * 100, 100)       //for userAnswer
@@ -51,16 +51,17 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
                         <div className="answerBar" style={{ width: `${percentage}%` }}></div>
                         <div className="correctAnswerBar" style={{ width: `${correctPercentage}%` }}></div>
                         <div className='flex flex-col items-center'>
-                            <p className="username">{answer?.username}</p>
                             <p className='answer'>{visibleAnswers[index] !== undefined ? visibleAnswers[index] : null}</p>
+                            <img src={answer?.userImg} alt="Italian Trulli" className="relative inline-block h-12 w-12 !rounded-full  object-cover object-center" onClick={() => handleShowAnswerClick(index, answer.answer)}/>
+                            <p className="username">{answer?.username}</p> 
+
                             {showWinners && (() => {
                                 
                             const winner = winners.find(w => w.userId === answer.userId);
-                            return winner ? <p>{winner.points}</p> : null;
+                            return winner ? <p className=''>{winner.points} Punkte!</p> : null;
                         })()}
 
-                            <img src={answer?.userImg} alt="Italian Trulli" className="relative inline-block h-12 w-12 !rounded-full  object-cover object-center" onClick={() => handleShowAnswerClick(index, answer.answer)}/>
-                            <p className="username">{answer?.username}</p> 
+
                         </div>
                     </div>
                 )

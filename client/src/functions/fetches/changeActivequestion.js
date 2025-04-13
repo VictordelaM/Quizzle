@@ -3,6 +3,7 @@
 export const changeActiveQuestion = async(quizId, sessionId, next) =>{
 
     try{
+        console.log(next)
         const url = import.meta.env.VITE_BACKEND_URL + '/quiz/setActiveQuestion/quiz/' + quizId + '/session/' + sessionId
         const response = await fetch(url, {
             method: 'POST',

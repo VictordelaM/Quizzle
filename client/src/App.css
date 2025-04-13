@@ -15,14 +15,15 @@
     box-sizing: border-box;
     }
 
-
+.test{
+    border: 2px solid red;
+}
     .container{
         display: flex;
         flex-direction: column;
         align-items: center;
         border: 1px solid;
         border-radius: 1rem;
-        width: 70%;
         padding: 2rem;
         align-self: center;
         background-color: var(--primary-colour);
@@ -32,7 +33,13 @@
     }
 
 
-
+    .userInput{
+        background-color: var(--primary-colour-acsent);
+        font-size: var(--font-size-mid);
+        width: 50%;
+        margin-bottom: 5%;
+        border: 2px solid var(--primary-colour-acsent);
+    }
 
 
 
@@ -88,12 +95,7 @@ html, body {
     background-color: var(--secondary-colour);
 }
 
-.userInput{
-    background-color: var(--primary-colour-acsent);
-    font-size: var(--font-size-mid);
-    width: 50%;
-    margin-bottom: 5%;
-}
+
 
 .userButton{
     width: 50%;

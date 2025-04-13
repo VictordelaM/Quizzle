@@ -41,12 +41,12 @@ const AnswerCard = ({activeQuestion, index}) => {
   if (!activeQuestion) return <div className='loading'>Lädt...</div>;
 
   return (
-    <div className="content">
-      <div className='questionContainer container'>
+    <div className="content flex w-full fixed justify-center items-center h-screen ">
+      <div className='questionContainer container' >
         <p>{index?.index+'/'+index?.length}</p>
         <p className='question'>{activeQuestion?.questionText}</p>
         {!answered && (
-          <form className='form' onSubmit={setUserAnswer}>
+          <form className='form flex flex-col items-center' onSubmit={setUserAnswer}>
             <input type="number" name="answerInput" id="answerInput" className='userInput'/>
             <button className='userInput userButton'>Antworten</button>
           </form>

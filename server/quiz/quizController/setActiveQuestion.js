@@ -4,7 +4,7 @@ import { Quiz } from "../quizModel/quizModel.js";
 export const setActiveQuestion = async (req, res) =>{
     try{
         const { quizId, sessionId } = req.params;
-        const { categoryId, categoryName, questionId , questionType, questionText , correctAnswer, imgLinks, videoLink, options} = req.body
+        const { categoryId, category, questionId , questionType, questionText , correctAnswer, imgLinks, videoLink, options} = req.body
         const quiz = await Quiz.findOne({ quizId });
 
         if (!quiz) {
@@ -17,7 +17,7 @@ export const setActiveQuestion = async (req, res) =>{
         }
 
         const activeQuestion = {
-            category: categoryName,
+            category: category,
             categoryId: categoryId,
             questionId: questionId, 
             questionText: questionText,
