@@ -52,6 +52,7 @@ const QuestionPage = () => {
             }
             if (currentValue >= targetValue) {
                 currentValue = targetValue;
+                setShowWinners(true)
                 clearInterval(interval);
             }
             setVisibleCorrectAnswer(currentValue);
@@ -108,7 +109,7 @@ const QuestionPage = () => {
                 <div className="flex justify-center items-center gap-2.5">
                     <div className="modInput">
                         <img src={Loupe} alt="lösung" className="w-10" onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}/>
-                        <img src={Crown} alt="Punkte" className="w-10" onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}/>
+                        {/* <img src={Crown} alt="Punkte" className="w-10" onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}/> */}
                     </div>
                     <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
                     {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}

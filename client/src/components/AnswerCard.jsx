@@ -1,6 +1,5 @@
 import React, { useContext, useEffect , useState} from 'react'
 import { setAnswer } from '../functions/fetches/setAnswer.js';
-import './AnswerCard.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import { getUser } from '../functions/fetches/userfetches.js';
 
@@ -41,17 +40,17 @@ const AnswerCard = ({activeQuestion, index}) => {
   if (!activeQuestion) return <div className='loading'>Lädt...</div>;
 
   return (
-    <div className="content flex w-full fixed justify-center items-center h-screen ">
-      <div className='questionContainer container' >
+    <div className=" flex w-full fixed justify-center items-center h-[95vh] text-center">
+      <div className='flex flex-col justify-center items-center h-fit w-[80%] p-[5%] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300' >
         <p>{index?.index+'/'+index?.length}</p>
-        <p className='question'>{activeQuestion?.questionText}</p>
+        <p className='mb-[2.5%]'>{activeQuestion?.questionText}</p>
         {!answered && (
-          <form className='form flex flex-col items-center' onSubmit={setUserAnswer}>
-            <input type="number" name="answerInput" id="answerInput" className='userInput'/>
-            <button className='userInput userButton'>Antworten</button>
+          <form className='form flex flex-col items-center gap-[1vh]' onSubmit={setUserAnswer}>
+            <input type="number" name="answerInput" id="answerInput" className='border'/>
+            <button className='border p-[2.5%]'>Antworten</button>
           </form>
         )}
-        {answered && <p className='answered'>Antwort <span>{aw}</span> gespeichert!</p>}
+        {answered && <p className='answered'>Antwort <span className=' p-[5%] questionContainer bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'>{aw}</span> gespeichert!</p>}
       </div>
     </div>
   )

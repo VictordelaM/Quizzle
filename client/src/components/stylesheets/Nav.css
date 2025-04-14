@@ -1,4 +1,4 @@
-.avatar {
+/* .avatar {
     width: 90%;
     height: 90%;
     aspect-ratio: 1 / 1; 
@@ -6,17 +6,9 @@
     object-fit: cover;   
     display: block;
     margin-left: 15%;
-}
+} */
 
 
-
-.navigation{
-    display: flex;
-    
-}
-
-.userCard{
-    display: flex;
-    align-items: center;
-    margin: 0 5% ;
-}
+/* .userCard{
+    padding-right: 5vh;
+} */

@@ -27,15 +27,15 @@ const Nav = () => {
     }
 
     return (
-        <div className="navBox flex bg-[var(--primary-colour)] h-[5vh] justify-between mb-55">
+        <div className="navBox sticky flex bg-[var(--secondary-colour)] h-[5vh] justify-between p-[5%]">
             
-            <div className="navigation">
-                <img src={leftArrow} alt="home" className='icon ' onClick={navBack}/>
-                <img src={home} alt="home" className='icon' onClick={navHome}/>
+            <div className="flex justify-center items-center gap-[5%]  ">
+                <img src={leftArrow} alt="home" className='h-6 w-6 ' onClick={navBack}/>
+                <img src={home} alt="home" className='h-6 w-6' onClick={navHome}/>
             </div>
-            <div className='userCard' onClick={navSettings}>
+            <div className='userCard flex justify-center items-center gap-[5%]' onClick={navSettings}>
                 <p className='userName'>{user?.username}</p>
-                <img className='avatar' src={user?.pictureUrl} alt="no img"/>       
+                <img className="relative inline-block h-6 w-6 !rounded-full  object-cover object-center " src={user?.pictureUrl} alt="no img"/>       
             </div>
         </div>
         
