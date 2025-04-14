@@ -4,9 +4,9 @@
     --secondary-colour: rgb(0, 0, 0);
     --secondary-colour-acsent: rgb(82, 82, 82);
     --font-size-big: 2rem;
-    --font-size-mid: 1rem;
+    --font-size-mid: 10rem;
     --font-size-small: 0.5rem;
-    --font-type : "Times New Roman"
+    --font-type : "Times New Roman";
 }
 @media (prefers-color-scheme: dark) {
     :root {
@@ -14,8 +14,8 @@
         --primary-colour-acsent : rgb(82, 82, 82);
         --secondary-colour: rgb(255, 255, 255);
         --secondary-colour-acsent: rgb(167, 167, 167);
-        --font-size-big: 2rem;
-        --font-size-mid: 1rem;
+        --font-size-big: 20rem;
+        --font-size-mid: 10rem;
         --font-size-small: 0.5rem;
         --font-type : "Times New Roman";
         --text-color: #ffffff;
