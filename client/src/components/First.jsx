@@ -32,7 +32,7 @@ const First = ({categoryId, quiz, sessionId}) => {
     }
     return (
         <div>
-            <button className="categoryButton" onClick={setFirstQuestion}>lets go</button>
+            <button className="text-[var(--primary-colour)]" onClick={setFirstQuestion}>lets go</button>
         </div>
     )
 }

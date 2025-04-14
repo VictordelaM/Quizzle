@@ -7,7 +7,7 @@ const SelectQuizCard = ({quiz}) => {
         navigate('/quiz/'+quiz?.quizId)
     }
     return (
-        <div onClick={nav} className='border w-fit p-[2.5%]'>
+        <div onClick={nav} className='border w-fit p-[2.5%] text-[var(--secondary-colour)]  text-[1.5rem]'>
             <p>{quiz?.title}</p>
         </div>
     )
