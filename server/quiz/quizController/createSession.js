@@ -11,8 +11,14 @@ export const createSession = async (req, res) => {
             return res.status(404).json({ error: "Quiz nicht gefunden" });
         }
 
+        const openCategories = quiz.categories.map(category => ({
+            category: category.categoryName,
+            categoryId: category.categoryId
+        }));
+
         const newSession = {
             sessionId: uuidv4(),
+            openCategories: openCategories,
         };
 
         quiz.sessions.push(newSession);

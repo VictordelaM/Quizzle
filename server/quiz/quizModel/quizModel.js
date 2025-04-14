@@ -65,6 +65,10 @@ const quizSchema = new Schema({
                 answer: { type: String },
                 points: { type: Number }
             }]
+        }],
+        openCategories:[{
+            category: { type: String },
+            categoryId: { type: String },
         }]
     }],
     

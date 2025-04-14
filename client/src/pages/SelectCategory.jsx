@@ -15,6 +15,7 @@ const SelectCategory = () => {
         };
         fetchQuiz();
     }, [quizId]);
+
     if (!quiz) return <p className="loading">Lädt...</p>;
     
     return (

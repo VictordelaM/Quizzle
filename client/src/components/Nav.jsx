@@ -27,7 +27,7 @@ const Nav = () => {
     }
 
     return (
-        <div className="navBox sticky flex bg-[var(--secondary-colour)] h-[5vh] justify-between p-[5%]">
+        <div className="navBox sticky flex bg-[var(--secondary-colour)] h-[5vh] justify-between px-[5%]">
             
             <div className="flex justify-center items-center gap-[5%]  ">
                 <img src={leftArrow} alt="home" className='h-6 w-6 ' onClick={navBack}/>
