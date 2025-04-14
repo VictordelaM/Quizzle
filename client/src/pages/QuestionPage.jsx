@@ -104,9 +104,9 @@ const QuestionPage = () => {
 
     return (
         <div className='flex flex-col justify-between h-screen'>
-            <Nav/>
-            <div className="h-fit">
-                <div className="flex justify-center items-center gap-2.5">
+            <Nav/>                                                                              //! icon farben anpassen
+            <div className="felx items-center h-[95vh] bg-[var(--primary-colour)] ">
+                <div className="flex justify-center h-[95vh] items-center gap-2.5">
                     <div className="modInput">
                         <img src={Loupe} alt="lösung" className="w-10" onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}/>
                         {/* <img src={Crown} alt="Punkte" className="w-10" onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}/> */}

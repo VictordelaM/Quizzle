@@ -5,7 +5,7 @@ const RegisterPage = () => {
     return (
         <div>
             <Nav/>
-            <div className='flex items-center h-[90vh] justify-center '>
+            <div className='flex items-center h-[90vh] justify-center  bg-[var(--primary-colour)]'>
                 <RegisterForm/>
             </div>
         </div>

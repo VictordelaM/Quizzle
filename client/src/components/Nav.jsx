@@ -4,6 +4,8 @@ import home from '../assets/home-svgrepo-com.svg'
 import leftArrow from '../assets/arrow-sm-left-svgrepo-com.svg'
 import './stylesheets/Nav.css'
 import { useNavigate } from 'react-router-dom'
+import logo from '../assets/B9895F82-0799-4D0C-B0AE-14E18E410421.svg'
+
 const Nav = () => {
     const [user, setUser] = useState(null);
     const navigate = useNavigate()
@@ -33,6 +35,7 @@ const Nav = () => {
                 <img src={leftArrow} alt="home" className='h-6 w-6 ' onClick={navBack}/>
                 <img src={home} alt="home" className='h-6 w-6' onClick={navHome}/>
             </div>
+            <img src={logo} alt="" className='w-[5vh] h-[5vh]' />
             <div className='userCard flex justify-center items-center gap-[5%]' onClick={navSettings}>
                 <p className='userName'>{user?.username}</p>
                 <img className="relative inline-block h-6 w-6 !rounded-full  object-cover object-center " src={user?.pictureUrl} alt="no img"/>       

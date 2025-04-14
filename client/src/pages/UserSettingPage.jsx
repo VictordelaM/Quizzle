@@ -6,7 +6,7 @@ const UserSettingPage = () => {
     return (
         <div>
             <Nav/>
-            <div className='flex items-center justify-center h-[90vh] '>
+            <div className='flex items-center justify-center h-[95vh]  bg-[var(--primary-colour)]'>
                 <UserSettingForm/>
             </div>
         </div>

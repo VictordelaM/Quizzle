@@ -1,16 +1,30 @@
 :root{
-    --primary-colour: rgba(255,0,255);
-    --primary-colour-acsent : rgba(180, 32, 180);
-    --secondary-colour: rgba(255,255,0);
-    --secondary-colour-acsent: rgba(255,255,0);
+    --primary-colour: rgb(255, 255, 255);
+    --primary-colour-acsent : rgb(167, 167, 167);
+    --secondary-colour: rgb(0, 0, 0);
+    --secondary-colour-acsent: rgb(82, 82, 82);
     --font-size-big: 2rem;
     --font-size-mid: 1rem;
     --font-size-small: 0.5rem;
     --font-type : "Times New Roman"
 }
-
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-colour: rgb(0, 0, 0);
+        --primary-colour-acsent : rgb(82, 82, 82);
+        --secondary-colour: rgb(255, 255, 255);
+        --secondary-colour-acsent: rgb(167, 167, 167);
+        --font-size-big: 2rem;
+        --font-size-mid: 1rem;
+        --font-size-small: 0.5rem;
+        --font-type : "Times New Roman";
+        --text-color: #ffffff;
+    }
+}
 
 .test{
     border: 2px solid red;
     background-color: red;
 }
+
+

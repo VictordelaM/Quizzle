@@ -5,7 +5,7 @@ const SelectCategoryCard = ({quiz, sessionId, category}) => {
 
 
     return (
-        <div className="flex flex-col text-center">
+        <div className="flex flex-col text-center test">
                 <div className="categoryBox">
                     <p className="categoryName">{category.category} </p>
                     <First categoryId= {category.categoryId} sessionId= {sessionId} quiz={quiz}/>

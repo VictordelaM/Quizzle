@@ -40,7 +40,7 @@ const AnswerCard = ({activeQuestion, index}) => {
   if (!activeQuestion) return <div className='loading'>Lädt...</div>;
 
   return (
-    <div className=" flex w-full fixed justify-center items-center h-[95vh] text-center">
+    <div className=" flex w-full fixed justify-center items-center h-[95vh] text-center bg-[var(--primary-colour)]">
       <div className='flex flex-col justify-center items-center h-fit w-[80%] p-[5%] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300' >
         <p>{index?.index+'/'+index?.length}</p>
         <p className='mb-[2.5%]'>{activeQuestion?.questionText}</p>

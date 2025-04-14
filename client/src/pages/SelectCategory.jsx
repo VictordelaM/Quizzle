@@ -32,9 +32,9 @@ const SelectCategory = () => {
     return (
         <div>
             <Nav/>
-            <div className="flex flex-col items-center  h-[90vh] ">
-                <h1>{quiz.title}</h1>
-                <div className="flex items-center flex-wrap h-[80%] w-[90%] gap-[15%]">
+            <div className="flex flex-col items-center  h-[95vh]  bg-[var(--primary-colour)]">
+                <h1 className="p-[5%]">{quiz.title}</h1>
+                <div className="flex items-center justify-center flex-wrap h-[100%] w-[90%] gap-[5%]">
                     {openCategories?.map((category, catIndex) => (
                         <SelectCategoryCard key={catIndex} quiz={quiz} sessionId={sessionId} category={category}/>
                     ))}

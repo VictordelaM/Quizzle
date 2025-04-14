@@ -24,7 +24,7 @@ const SessionContainer = () => {
     }
 
     return (
-        <div className="component">
+        <div className="component bg-[var(--primary-colour)]">
             <div className='flex flex-col h-[95vh] items-center gap-[2.5%] p-[5%]'>
                 {quiz?.sessions?.map((session, index)=>{
                     return <div key={index} className="flex flex-col justify-center gap-[5%] items-center w-[90%] h-fit bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 ">

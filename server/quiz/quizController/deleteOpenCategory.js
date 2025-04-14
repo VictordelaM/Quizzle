@@ -21,8 +21,7 @@ export const deleteOpenCategory = async (req, res) => {
         // search category by id
         const initialLength = quiz.categories.length;
         session.openCategories = session.openCategories.filter(cat => cat.categoryId !== categoryId);
-        console.log(session.openCategories)
-        console.log(categoryId)
+
         // if (quiz.categories.length === initialLength) {
         //     return res.status(404).json({ error: "Kategorie nicht gefunden" });
         // }

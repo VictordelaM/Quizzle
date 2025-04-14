@@ -42,7 +42,7 @@ const Index = () => {
     return (
         <div>
             <Nav/>
-            <div className='flex flex-col items-center p-[5%] gap-[5%] h-[95vh] text-center'>
+            <div className='flex flex-col items-center p-[5%] gap-[5%] h-[95vh] text-center text-[var(--secondary-colour)] bg-[var(--primary-colour)]'>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nam deserunt placeat nostrum similique corporis omnis in tempora. Exercitationem repellat debitis doloremque. Accusantium vel porro expedita, at necessitatibus et deserunt minima exercitationem ab voluptate dolorum ipsam itaque quasi ut nihil, quibusdam tempore. Velit recusandae ratione doloremque vel ea earum!</p>
                 <button className='border' onClick={nav}>select your Quiz</button>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nam deserunt placeat nostrum similique corporis omnis in tempora. Exercitationem repellat debitis doloremque. Accusantium vel porro expedita, at necessitatibus et deserunt minima exercitationem ab voluptate dolorum ipsam itaque quasi ut nihil, quibusdam tempore. Velit recusandae ratione doloremque vel ea earum!</p>

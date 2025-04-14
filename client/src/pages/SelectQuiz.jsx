@@ -17,7 +17,7 @@ const SelectQuiz = () => {
     return (
         <div className=''>
             <Nav/>
-            <div className="flex flex-col text-center items-center p-[10%] gap-[5%] h-[95vh]">
+            <div className="flex flex-col text-center items-center p-[10%] gap-[5%] h-[95vh]  bg-[var(--primary-colour)]">
                 <h3>Verfügbare Quizzes:</h3>
                 {
                     quizzes?.map((quiz, index)=>{
