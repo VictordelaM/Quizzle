@@ -3,14 +3,11 @@ import { useParams } from "react-router-dom";
 import { getActiveQuestion } from "../functions/getActivQuestion";
 import ActiveQuestion from "../components/ActiveQuestion";
 import Next from "../components/Next";
-import First from "../components/First";
 import Guesses from "../components/Guesses";
 import { fetchQuizData } from "../functions/fetches/getQuizData";
 import { getIndex } from "../functions/getIndex";
 import Nav from "../components/Nav";
 import Loupe from "../assets/loupe-search-svgrepo-com.svg"
-import Crown from "../assets/crown-minimalistic-svgrepo-com.svg"
-import Test from "../components/Test";
 import { mainContext } from "../context/MainProvider";
 import { calculateAnswers } from "../functions/calculateAnswers";
 
@@ -104,19 +101,20 @@ const QuestionPage = () => {
 
     return (
         <div className='flex flex-col justify-between h-screen'>
-            <Nav/>                                                                              //! icon farben anpassen
-            <div className="felx items-center h-[95vh] bg-[var(--primary-colour)] ">
-                <div className="flex justify-center h-[95vh] items-center gap-2.5">
-                    <div className="modInput">
-                        <img src={Loupe} alt="lösung" className="w-10" onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}/>
-                        {/* <img src={Crown} alt="Punkte" className="w-10" onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}/> */}
+            <Nav/>
+            <div className="flex flex-col h-[95vh]">
+                <div className="items-center text-[var(--primary-colour)] my-[7.5%]">
+                    <div className="flex justify-center items-center gap-2.5">
+                        <div className="modInput">
+                            <img src={Loupe} alt="lösung" className="w-10" onClick={() => handleShowCorrectAnswerClick(index, activeQuestion?.correctAnswer)}/>
+                            {/* <img src={Crown} alt="Punkte" className="w-10" onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}/> */}
+                        </div>
+                        <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
+                        {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}
                     </div>
-                    <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
-                    {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}
                 </div>
+                <Guesses activeQuestion={activeQuestion} winners={winners} showWinners={showWinners}/>
             </div>
-            <Guesses activeQuestion={activeQuestion} winners={winners} showWinners={showWinners}/>
-
         </div>
     );
 };

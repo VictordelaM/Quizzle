@@ -5,11 +5,10 @@ import { mainContext } from '../context/MainProvider.jsx';
 import { calculateAnswers } from '../functions/calculateAnswers';
 import { getUserImage } from '../functions/fetches/userfetches';
 const Guesses = ({ activeQuestion, winners, showWinners }) => {
-    const [visibleAnswers, setVisibleAnswers] = useState({});
+    const [visibleAnswers, setVisibleAnswers] = useState([]);
     const [maxBarValue, setMaxBarValue] = useState(100);
     const{visibleCorrectAnswer, setVisibleCorrectAnswer} = useContext(mainContext)
     
-
     const handleShowAnswerClick = (index, targetValue) => {
         if (visibleAnswers[index]) return; 
         let currentValue = 0;
@@ -32,19 +31,23 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
                 currentValue = targetValue;
                 clearInterval(interval);
             }
-            setVisibleAnswers(prev => ({
-                ...prev,
-                [index]: currentValue
-            }));
+            let oldAnswers = [...visibleAnswers]
+            oldAnswers.push(currentValue)
+            setVisibleAnswers(oldAnswers);
+            
         }, 60);
     };
-
-
+    useEffect(() => {
+        const max = visibleAnswers.reduce((a, b) => Math.max(a, b), -Infinity);
+        if(visibleCorrectAnswer > max) {
+            setMaxBarValue(visibleCorrectAnswer)
+        }else(setMaxBarValue(max))
+    },[visibleAnswers])
     return (
-        <div className='flex justify-evenly bottom-10'>
+        <div className='flex justify-evenly'>
             {activeQuestion?.answers.map((answer, index)=>{ 
                 const value = visibleAnswers[index] ?? 0;
-                const percentage = Math.min((value / maxBarValue) * 100, 100)       //for userAnswer
+                const percentage = Math.min((value / maxBarValue) * 100, 100)
                 const correctPercentage =  Math.min((visibleCorrectAnswer / maxBarValue) * 100, 100)
                 return(
                     <div key={index} className="answerBox">

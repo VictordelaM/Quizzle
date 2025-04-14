@@ -14,7 +14,7 @@ const ActiveQuestion = ({activeQuestion, index}) => {
                 <div className="">{index?.index + '/' + index?.length}</div>
             </div>
             
-            <h2 className="question">{activeQuestion?.questionText}</h2>
+            <p className="text-[2rem]">{activeQuestion?.questionText}</p>
             {visibleCorrectAnswer>0&& <div className="relative top-5 bg-white rounded-2xl shadow-lg p-[2.5%] flex flex-col items-center ">
                 <p>Korrekte Antwort:</p>
                 <p>{visibleCorrectAnswer}</p>
