@@ -18,6 +18,7 @@ import { getEveryQuiz } from "../quizController/getEveryQuiz.js";
 import { getSessionData } from "../quizController/getSessionData.js";
 import { checkRepeatAnswer, checkRepeatParticipant } from "../../middleware/checkRepeat.js";
 import { deleteOpenCategory } from "../quizController/deleteOpenCategory.js";
+import { getOpenCategories } from "../quizController/getOpenCategories.js";
 
 const quizRouter = express.Router()
 const mult = multer({ storage: multer.memoryStorage() })
@@ -30,6 +31,7 @@ quizRouter.get("/getQuizByID/:quizId", mult.none(), getQuizByID)
 quizRouter.get("/getActiveQuesiton/quiz/:quizId/session/:sessionId", mult.none(), getActiveQuesiton)
 quizRouter.get("/getEveryQuiz", mult.none(), getEveryQuiz)
 quizRouter.get("/getSessionData/quiz/:quizId/session/:sessionId", mult.none(), getSessionData)
+quizRouter.get("/getOpenCategories/quiz/:quizId/session/:sessionId", mult.none(), getOpenCategories)
 
 //!DELETE
 quizRouter.delete("/deleteOpenCategory/quiz/:quizId/session/:sessionId/category/:categoryId", mult.none(), deleteOpenCategory)

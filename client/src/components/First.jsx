@@ -1,9 +1,18 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { changeActiveQuestion } from "../functions/fetches/changeActivequestion";
+import { deleteOpenCategory } from "../functions/fetches/openCategoriesFetches";
 
 const First = ({categoryId, quiz, sessionId}) => {
     const navigate = useNavigate()
+
+    const deleteCat = () => {
+
+    }
+
+
+
+
 
     const setFirstQuestion = () =>{
         const category = quiz?.categories?.find(cat => cat.categoryId === categoryId);
@@ -18,6 +27,7 @@ const First = ({categoryId, quiz, sessionId}) => {
             categoryId: category?.categoryId
         }
         changeActiveQuestion(quiz?.quizId, sessionId, firstQuestion)
+        deleteOpenCategory(quiz.quizId, sessionId, categoryId)
         navigate('/question/'+quiz?.quizId+'/'+sessionId)
     }
     return (

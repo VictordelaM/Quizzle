@@ -4,6 +4,7 @@ import { fetchQuizData } from "../functions/fetches/getQuizData";
 import { getActiveQuestion } from "../functions/getActivQuestion";
 import { changeActiveQuestion } from "../functions/fetches/changeActivequestion";
 import arrowRight from "../assets/arrow-next-small-svgrepo-com.svg"
+import { deleteOpenCategory } from "../functions/fetches/openCategoriesFetches";
 
 const Next = ({activeQuestion, index}) => {
 
@@ -12,14 +13,16 @@ const Next = ({activeQuestion, index}) => {
     const navigate = useNavigate()
 
                                                                     //!quiz aus parent
-        useEffect(() => {
-            const actQue = async() =>{
-                const quiz =await fetchQuizData(quizId)
-                setQuiz(quiz)
-            }
-            actQue()
+    useEffect(() => {
+        const actQue = async() =>{
+            const quiz =await fetchQuizData(quizId)
+            setQuiz(quiz)
+        }
+        actQue()
+    }, []);
 
-        }, []);
+
+    
         
     const setNextQuestionId = (quiz, activeQuestion) => {
         // 1️⃣ Kategorie finden
@@ -49,7 +52,7 @@ const Next = ({activeQuestion, index}) => {
         }
         console.log(nextQuestion)
         changeActiveQuestion(quizId, sessionId, nextQuestion)
-        // location.reload()
+        location.reload()
     };
     return (
         <div>
