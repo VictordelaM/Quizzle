@@ -12,7 +12,6 @@ const ScoreBoard = () => {
         const getData = async() =>{
             
             const sessionData = await getSessionData(quizId, sessionId)
-            console.log(sessionData)
             setSession(sessionData)
         }
         getData()
@@ -21,21 +20,24 @@ const ScoreBoard = () => {
         navigate('/selectCategory/quiz/'+quizId+'/session/'+sessionId)
     }
     return (
-        <div className='flex flex-col min-h-screen bg-gray-50'>
+        <div className='flex flex-col min-h-screen bg-gray-50 '>
             <Nav/>
-            <div className='flex flex-wrap justify-center gap-6 p-6 pt-12'>
-                    {session?.participants?.map((participant)=>{
-                        let points = 0
-                        
-                        participant.points.map((p)=>{points += p.points})
-                        return <div key={participant._id} className="flex flex-col items-center w-full sm:w-[45%] md:w-[20%] lg:w-[20%] bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <img className='w-12 h-12 object-cover rounded-full mb-3' url={participant.userImg} ></img>
-                            <p>{participant.username}</p>
-                            <p>{points}</p>
-                        </div>
-                    })}
+            <div className='flex flex-col h-[90vh]'> 
+                <div className='flex flex-wrap justify-center items-center  h-[90vh] gap-x-6'>
+                        {session?.participants?.map((participant)=>{
+                            let points = 0
+                            
+                            participant.points.map((p)=>{points += p.points})
+                            return <div key={participant._id} className="flex flex-col items-center w-full sm:w-[45%] md:w-[20%] lg:w-[20%] bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                <img className='w-12 h-12 object-cover rounded-full mb-3' url={participant.userImg} ></img>
+                                <p>{participant.username}</p>
+                                <p>{points}</p>
+                            </div>
+                        })}
+                </div>
                 <button onClick={navigateCat}>next category</button>
             </div>
+            
             
             
         </div>

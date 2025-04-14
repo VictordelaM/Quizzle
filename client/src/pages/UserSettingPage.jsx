@@ -8,7 +8,6 @@ const UserSettingPage = () => {
             <Nav/>
             <div className='flex items-center justify-center h-[90vh] '>
                 <UserSettingForm/>
-                
             </div>
         </div>
     )

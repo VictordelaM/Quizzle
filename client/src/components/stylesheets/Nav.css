@@ -8,13 +8,7 @@
     margin-left: 15%;
 }
 
-.navBox {
-    display: flex;
-    background-color: var(--primary-colour);
-    height: 5vh;
-    justify-content: space-between;
-    margin-bottom: 5vh;
-}
+
 
 .navigation{
     display: flex;
@@ -25,5 +19,4 @@
     display: flex;
     align-items: center;
     margin: 0 5% ;
-    border: 2px solid black;
 }
