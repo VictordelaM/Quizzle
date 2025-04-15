@@ -110,7 +110,7 @@ const QuestionPage = () => {
                             {/* <img src={Crown} alt="Punkte" className="w-10" onClick={() => handleShowWinners(index, activeQuestion?.correctAnswer)}/> */}
                         </div>
                         <ActiveQuestion activeQuestion={activeQuestion} index={index}/>
-                        {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index}/>}
+                        {quiz && <Next quiz={quiz} activeQuestion={activeQuestion} sessionId={sessionId} index={index} winners={winners}/>}
                     </div>
                 </div>
                 <Guesses activeQuestion={activeQuestion} winners={winners} showWinners={showWinners}/>

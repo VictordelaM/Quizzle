@@ -4,10 +4,9 @@ import jwt from 'jsonwebtoken'
 export const addPoints = async (req, res) => {
     try {
         const { quizId, sessionId} = req.params;
-        const {answer, category, categoryId, question, questionId, points } = req.body;
-        const user = jwt.decode(req.cookies.token)
+        const {answer, category, categoryId, question, questionId, points, userId, username} = req.body;
         const quiz = await Quiz.findOne({ quizId });
-
+        
         if (!quiz) {
             return res.status(404).json({ error: "Quiz nicht gefunden" });
         }
@@ -18,7 +17,11 @@ export const addPoints = async (req, res) => {
             return res.status(404).json({ error: "Session nicht gefunden" });
         }
 
-        const participant = session.participants.find(participant => participant.userId.toString() === user.id);
+        const participant = session.participants.find(participant => participant.userId.toString() === userId);
+
+        if (!participant) {
+            return res.status(404).json({ error: "participant nicht gefunden" });
+        }
 
         participant.points.push({
             category: category,

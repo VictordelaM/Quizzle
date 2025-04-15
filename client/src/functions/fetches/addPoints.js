@@ -1,5 +1,6 @@
-export const addPoints = async(bodyData)=>{
+export const addPoints = async(quizId, sessionId, bodyData)=>{
     try{
+        console.log(bodyData)
         const url = import.meta.env.VITE_BACKEND_URL + '/quiz/addPoints/quiz/'+quizId+'/session/'+sessionId
         const response = await fetch(url, {
             method: 'POST',
@@ -7,6 +8,7 @@ export const addPoints = async(bodyData)=>{
             body: JSON.stringify(bodyData),
             credentials: "include"
             })
+
         if (!response.ok) {
             throw new Error('Fehler beim hinzufüger der Punkte von: '+ userId);
             }

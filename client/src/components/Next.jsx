@@ -5,8 +5,9 @@ import { getActiveQuestion } from "../functions/getActivQuestion";
 import { changeActiveQuestion } from "../functions/fetches/changeActivequestion";
 import arrowRight from "../assets/arrow-next-small-svgrepo-com.svg"
 import { deleteOpenCategory } from "../functions/fetches/openCategoriesFetches";
+import { addPoints } from "../functions/fetches/addPoints.js";
 
-const Next = ({activeQuestion, index}) => {
+const Next = ({activeQuestion, index, winners}) => {
 
     const [quiz, setQuiz] = useState(null)
     const { quizId, sessionId } = useParams();
@@ -31,7 +32,16 @@ const Next = ({activeQuestion, index}) => {
         // 2️⃣ Frage-Index in der Kategorie finden
         const questionIndex = category?.questions?.findIndex(q => q.questionId === activeQuestion?.questionId
         );
-        console.log(questionIndex)
+        winners.map((winner) => {
+            const bodyData = {
+                answer: winner.answer,
+                points: winner.points,
+                username: winner.username,
+                userId: winner.userId
+            }
+            addPoints(quizId, sessionId, bodyData)
+        })  
+
         if(index?.index >= index?.length){
             navigate('/scoreboard/quiz/'+quizId+'/session/'+ sessionId)
             return
@@ -39,7 +49,7 @@ const Next = ({activeQuestion, index}) => {
         
         // 4️⃣ ID der nächsten Frage als neue Frage Setzen
         const nextOnlyQuestion = category?.questions[questionIndex + 1]
-        console.log('nextOnlyQuestion:', category?.questions[questionIndex])
+
         const nextQuestion = {
             answers: nextOnlyQuestion.answers,
             correctAnswer: nextOnlyQuestion.correctAnswer,
@@ -50,8 +60,9 @@ const Next = ({activeQuestion, index}) => {
             category: category.categoryName,
             categoryId: category.categoryId
         }
-        console.log(nextQuestion)
+
         changeActiveQuestion(quizId, sessionId, nextQuestion)
+
         location.reload()
     };
     return (
