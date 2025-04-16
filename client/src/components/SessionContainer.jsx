@@ -19,8 +19,7 @@ const SessionContainer = () => {
         navigate('/userAnswer/' + quizId + '/session/' + sessionId)
     }
     const create = async() =>{
-        const session = createSession(quizId)
-        location.reload()
+        navigate('/createSession/' + quizId)
     }
 
     return (

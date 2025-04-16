@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { addQuiz } from "../quizController/addQuiz.js";
+
 import { getQuizByID } from "../quizController/getQuizByID.js";
 import { deleteQuizByID } from "../quizController/deleteQuizByID.js";
 import { addCategoryToQuiz } from "../quizController/addCategoryToQuiz.js";
@@ -42,8 +42,7 @@ quizRouter.delete("/deleteQuizByID/:id", mult.none(), deleteQuizByID)
 
 //!POST
 quizRouter.post("/addCompleteQuiz", mult.none(), addCompleteQuiz) //body: title categories (with questions)
-quizRouter.post("/addQuiz", mult.none(), addQuiz) //body: title
-quizRouter.post("/createSession/quiz/:quizId", mult.none(), createSession)
+quizRouter.post("/createSession/quiz/:quizId", mult.none(), createSession) //
 quizRouter.post("/addCategoryToQuiz/:quizId", mult.none(), addCategoryToQuiz)//body: categoryName
 quizRouter.post("/addQuestionToCategory/:quizId/:categoryId", mult.none(), addQuestionToCategory) //body:questionText,questionType,options,correctAnswer,videoLink,imgLinks
 

@@ -29,7 +29,7 @@ const FeedbackPage = () => {
             <div className="bg-[var(--secondary-colour)] text-[var(--primary-colour)] rounded-xl shadow-lg p-6 space-y-4">
                 <h2 className="text-2xl font-semibold">Bereits bekannte Issues</h2>
                 <ul className="list-disc list-inside space-y-1">
-                <li>[Platzhalter für Issue 1]</li>
+                <li>Bilder sollen zu fragen, quizzes, und sessions hinzufügbar gemacht werden</li>
                 <li>[Platzhalter für Issue 2]</li>
                 <li>[Platzhalter für Issue 3]</li>
                 </ul>

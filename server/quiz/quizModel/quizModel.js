@@ -35,8 +35,7 @@ const quizSchema = new Schema({
             participatLimit: { type: Number },//!
             onlyInvited: { type: Boolean },//!
             showPoints: { type: Boolean },//!
-            joker: { type: Boolean },//!
-            jokerNumber: { type: Number },//!
+            jokerNumber: { type: Number, default: 0 },//!
             sessionImg: { type: String },//!
             passwordRequired: { type: Boolean },//!
             passwordHash: { type: String },//!
