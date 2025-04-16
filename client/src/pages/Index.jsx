@@ -32,21 +32,22 @@ const Index = () => {
         getQuizData()
     },[])
     
-    // if(!user){
-    //     navigate('/login')
-    // }
-    const nav = () =>{
+
+    const navQuizSelect = () =>{
         navigate('/selectQuiz')
     }
     const navFeedback = () =>{
         navigate('/feedback')
+    }
+    const navLogin = () =>{
+        navigate('/login')
     }
     return (
         <div>
             <Nav/>
             <div className='flex flex-col items-center p-[5%] gap-[5%]  min-h-[95vh] text-center font-[var(--font-type)] bg-[var(--primary-colour)]'>
                 <p className='text-[2rem] text-[var(--secondary-colour)]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nam deserunt placeat nostrum similique corporis omnis in tempora. Exercitationem repellat debitis doloremque. Accusantium vel porro expedita, at necessitatibus et deserunt minima exercitationem ab voluptate dolorum ipsam itaque quasi ut nihil, quibusdam tempore. Velit recusandae ratione doloremque vel ea earum!</p>
-                <button className='border text-[2rem] text-[var(--secondary-colour)] p-[1%]' onClick={nav}>select your Quiz</button>
+                {user?<button className='border text-[2rem] text-[var(--secondary-colour)] p-[1%]' onClick={navQuizSelect}>select your Quiz</button>:<p onClick={navLogin} className='text-[2rem] text-[var(--secondary-colour)] border border-[var(--secondary-colour)] p-[2.5%] m-[2.5%]'>Log dich ein um an einem Quiz Teilzunehmen</p>}
                 <p className='text-[2rem] text-[var(--secondary-colour)]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nam deserunt placeat nostrum similique corporis omnis in tempora. Exercitationem repellat debitis doloremque. Accusantium vel porro expedita, at necessitatibus et deserunt minima exercitationem ab voluptate dolorum ipsam itaque quasi ut nihil, quibusdam tempore. Velit recusandae ratione doloremque vel ea earum!</p>
                 <button className='border text-[2rem] text-[var(--secondary-colour)] p-[1%]' onClick={navFeedback}>leave Feedback</button>
             </div>

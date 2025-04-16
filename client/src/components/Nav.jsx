@@ -28,7 +28,12 @@ const Nav = () => {
     const navBack = () =>{
         navigate(-1)
     }
-
+    const navRegister = () =>{
+        navigate('/register')
+    }
+    const navLogin = () =>{
+        navigate('/login')
+    }
     return (
         <div className="navBox sticky flex bg-[var(--secondary-colour)] h-[5vh] justify-between px-[5%] text-[var(--primary-colour)]">
             
@@ -47,7 +52,7 @@ const Nav = () => {
                 className="w-[5vh] h-[5vh] hidden dark:block"
                 onClick={navHome}
             />
-            <div className='userCard flex justify-center items-center gap-[5%]' onClick={navSettings}>
+            {user ? <div className='userCard flex justify-center items-center gap-[5%]' onClick={navSettings}>
                 <p className='text-[1.25rem]'>{user?.username}</p>
                 {user?.pictureUrl ? (
                             <img
@@ -62,7 +67,12 @@ const Nav = () => {
                                 {user?.username?.[0] ?? "?"}
                             </div>
                             )}
-            </div>
+            </div> : <div className='text-[var(--primary-colour)]'>
+                <p onClick={navRegister}>Register</p>
+                <p onClick={navLogin}>Login</p>
+            </div> }
+            
+            
         </div>
         
     )
