@@ -7,19 +7,24 @@ const CreateSession = () => {
     const create = async (event) => {   
         event.preventDefault()
         console.log(quizId)
-        const sessionData = {
+        const session = {
             sessionName: event.target.sessionName.value,
             description: event.target.description.value,
         }
-        console.log('data:', sessionData)
-        const response = await fetch(import.meta.env.VITE_BACKEND_URL+'/quiz/createSession/quiz/'+quizId, {
+        const sessionResponse = await fetch(import.meta.env.VITE_BACKEND_URL+'/quiz/createSession/quiz/'+quizId, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(sessionData),
+            body: JSON.stringify(session),
             credentials: "include"
         })
-        const data = await response.json()
-        console.log('response',data)
+        const sessionData = await sessionResponse.json()
+        console.log(sessionData)
+        const userResponse = await fetch(import.meta.env.VITE_BACKEND_URL+'/user/addParticipatedSessions', {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({quizId: quizId, sessionId: sessionData.session.sessionId, sessionName: sessionData.session.sessionName, moderator: true}),
+            credentials: "include"
+        })
     }
     return (
         <div>

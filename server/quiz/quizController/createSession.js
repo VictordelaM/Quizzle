@@ -32,7 +32,7 @@ export const createSession = async (req, res) => {
 
         res.status(201).json({
             message: "Session erfolgreich erstellt",
-            sessionId: newSession.sessionId
+            session: newSession
         });
 
     } catch (error) {

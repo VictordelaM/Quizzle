@@ -31,15 +31,15 @@ const userSchema =new Schema({
         quizOwner: String,
         from: String,
     }],
-    ownQuizzes:[{//!
+    ownQuizzes:[{
         quizId: String,
         quizTitle: String,
     }],
     participatedSessions:[{//!
         quizId: String,
-        quizTitle: String,
         sessionId: String,
         sessionName: String,
+        moderator: Boolean,
     }],
     pictureUrl:{
         type: String,
