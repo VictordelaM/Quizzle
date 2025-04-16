@@ -44,6 +44,7 @@ const QuestionPage = () => {
         const step = calcStep();
         const interval = setInterval(() => {
             currentValue += step;
+            setVisibleCorrectAnswer(currentValue);
             if (currentValue >= maxBarValue) {
                 setMaxBarValue(currentValue)
             }
@@ -52,7 +53,7 @@ const QuestionPage = () => {
                 setShowWinners(true)
                 clearInterval(interval);
             }
-            setVisibleCorrectAnswer(currentValue);
+            
         }, 60); 
     };
 
@@ -102,7 +103,7 @@ const QuestionPage = () => {
     return (
         <div className='flex flex-col justify-between h-screen'>
             <Nav/>
-            <div className="flex flex-col h-[95vh]">
+            <div className="flex flex-col h-[95vh] bg-[var(--primary-colour)]">
                 <div className="items-center text-[var(--primary-colour)] my-[7.5%]">
                     <div className="flex justify-center items-center gap-2.5">
                         <div className="modInput">

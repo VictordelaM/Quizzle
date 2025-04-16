@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import './Guesses.css'
 import { addPoints } from '../functions/fetches/addPoints';
 import { mainContext } from '../context/MainProvider.jsx';
 import { calculateAnswers } from '../functions/calculateAnswers';
@@ -10,7 +9,9 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
     const{visibleCorrectAnswer, setVisibleCorrectAnswer} = useContext(mainContext)
     
     const handleShowAnswerClick = (index, targetValue) => {
+
         if (visibleAnswers[index]) return; 
+        console.log(targetValue)
         let currentValue = 0;
         const calcStep = () => {
             if (targetValue <= 10) return 1;
@@ -38,8 +39,9 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
         }, 60);
     };
     useEffect(() => {
-        const max = visibleAnswers.reduce((a, b) => Math.max(a, b), -Infinity);
+        const max = visibleAnswers.reduce((a, b) => Math.max(a, b), 1);
         if(visibleCorrectAnswer > max) {
+            console.log(visibleCorrectAnswer)
             setMaxBarValue(visibleCorrectAnswer)
         }else(setMaxBarValue(max))
     },[visibleAnswers])
@@ -47,15 +49,24 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
         <div className='flex justify-evenly'>
             {activeQuestion?.answers.map((answer, index)=>{ 
                 const value = visibleAnswers[index] ?? 0;
-                const percentage = Math.min((value / maxBarValue) * 100, 100)
+                let percentage 
+                if(maxBarValue <= value){
+                    percentage = Math.min((value / answer.answer) * 100, 100)
+                } else{
+                    percentage = Math.min((value / maxBarValue) * 100, 100)
+                }
                 const correctPercentage =  Math.min((visibleCorrectAnswer / maxBarValue) * 100, 100)
+
                 return(
-                    <div key={index} className="answerBox">
-                        <div className="answerBar" style={{ width: `${percentage}%` }}></div>
-                        <div className="correctAnswerBar" style={{ width: `${correctPercentage}%` }}></div>
+                    <div key={index} className="answerBox text-[var(--secondary-colour)]">
+                        <div className="flex h-full justify-center items-end">
+                            
+                            <div className=" bg-[var(--secondary-colour)] w-[2vh] h-[2vh] overflow-hidden text-[var(--primary-colour)]" style={{ height: `${percentage}%` }}></div>
+                            <div className=" bg-[var(--secondary-colour-acsent)]  w-[2vh] h-[2vh]" style={{ height: `${correctPercentage}%` }}></div>
+                        </div>
                         <div className='flex flex-col items-center'>
                             <p className='answer'>{visibleAnswers[index] !== undefined ? visibleAnswers[index] : null}</p>
-                            <img src={answer?.userImg} alt="Italian Trulli" className="relative inline-block h-12 w-12 !rounded-full  object-cover object-center" onClick={() => handleShowAnswerClick(index, answer.answer)}/>
+                            <img src={answer?.userImg} alt="Italian Trulli" className="relative inline-block h-12 w-12 !rounded-full  object-cover object-center bg-[var(--secondary-colour)]" onClick={() => handleShowAnswerClick(index, answer.answer)}/>
                             <p className="username">{answer?.username}</p> 
 
                             {showWinners && (() => {
@@ -63,8 +74,6 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
                             const winner = winners.find(w => w.userId === answer.userId);
                             return winner ? <p className=''>{winner.points} Punkte!</p> : null;
                         })()}
-
-
                         </div>
                     </div>
                 )
