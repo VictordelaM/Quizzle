@@ -9,6 +9,8 @@ import { getUserImg, getUserImgById } from "../userController/getUserImg.js";
 import { checkRepeatName } from "../../middleware/checkRepeat.js";
 import { addOwnQuizzes } from "../userController/addOwnQuizzes.js";
 import { addParticipatedSessions } from "../userController/addparticipatedSessions.js";
+import { getParticipatedSessions } from "../userController/getParticipatedSessions.js";
+import { getOwnQuizzes } from "../userController/getOwnQuizzes.js";
 
 const userRouter = express.Router()
 const mult = multer({ storage: multer.memoryStorage() })
@@ -24,4 +26,8 @@ userRouter.get("/getUserImg", mult.none(), getUserImg)
 userRouter.get("/getUserImgById/:userId", mult.none(), getUserImgById)
 userRouter.post('/addOwnQuiz', mult.none(), addOwnQuizzes) //body: quizId, quizTitl
 userRouter.post("/addParticipatedSessions", mult.none(), addParticipatedSessions) //body: quizId, sessionId, sessionName, quizTitle
+userRouter.get("/getParticipatedSessions", mult.none(), getParticipatedSessions) 
+userRouter.get("/getOwnQuizzes", mult.none(), getOwnQuizzes) 
+
+
 export default userRouter

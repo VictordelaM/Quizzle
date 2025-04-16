@@ -140,3 +140,31 @@ export const getUserImageById = async(userId) =>{
         throw error;        
     }
 }
+
+export const getParticipatedSessions = async () => {
+    try {
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/user/getParticipatedSessions', {
+            method: 'GET',
+            credentials: "include",
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Fetch-Fehler:', error);
+        throw error;
+    }
+}
+
+export const getOwnQuizzes = async () => {
+    try {
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/user/getOwnQuizzes', {
+            method: 'GET',
+            credentials: "include",
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Fetch-Fehler:', error);
+        throw error;
+    }
+}

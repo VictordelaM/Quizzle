@@ -17,6 +17,7 @@ import Datenschutz from './pages/Datenschutz'
 import AddQuiz from './pages/AddQuiz'
 import FeedbackPage from './pages/FeedbackPage'
 import CreateSession from './pages/createSession'
+import OwnContent from './pages/OwnContent'
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/addQuiz" element={<AddQuiz/>}/>
         <Route path="/feedback" element={<FeedbackPage/>} />
         <Route path="/createSession/:quizId" element={<CreateSession />} />
+        <Route path="/ownContent" element={<OwnContent />} />
       </Routes>
     </>
   )

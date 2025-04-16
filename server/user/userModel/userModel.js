@@ -35,7 +35,7 @@ const userSchema =new Schema({
         quizId: String,
         quizTitle: String,
     }],
-    participatedSessions:[{//!
+    participatedSessions:[{
         quizId: String,
         sessionId: String,
         sessionName: String,

@@ -40,15 +40,15 @@ const AddQuiz = () => {
     return (
         <div>
             <Nav/>
-            <div className='flex flex-col text-center justify-center items-center gap-[5vh] min-h-[95vh]  bg-[var(--secondary-colour)] mt-[5%]'>
-                {quiz.length === 0 ?<form onSubmit={addQuizHook} className='bg-[var(--primary-colour)] text-[var(--secondary-colour)] p-[2.5%] flex flex-col gap-[1vh] items-center'>
+            <div className='flex flex-col text-center justify-center items-center gap-[5vh] min-h-[80vh] bg-[var(--secondary-colour)] mt-[5%]'>
+                {quiz.length === 0 ?<form onSubmit={addQuizHook} className='bg-[var(--primary-colour)] text-[var(--secondary-colour)] p-[2.5%] flex flex-col gap-[1vh] items-center rounded-2xl'>
                     <label htmlFor="title">Wähle einen Titel für dein Quiz</label>
                     <input type="text" name='title' className='border border-[var(--secondary-colour)]'/>
                     <button className='border border-[var(--secondary-colour)] w-fit p-[2%]'>Submit</button>
                 </form> :null}
                 
                 {quiz.map((q, index)=>{
-                    return <div key={index}  className='bg-[var(--primary-colour)] text-[var(--secondary-colour)] p-[2.5%] flex flex-col gap-[2.5%]'>
+                    return <div key={index}  className='bg-[var(--primary-colour)] text-[var(--secondary-colour)] p-[2.5%] flex flex-col gap-[2.5%] '>
                         <h3 className='pb-[5%]'>Quiztitel: {q?.title}</h3>
                         <form onSubmit={addCategoryHook} className='mb-[2.5%] gap-[2.5%] flex'>
                             <label htmlFor="categoryName">Kategoriename: </label>
