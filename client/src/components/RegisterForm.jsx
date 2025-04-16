@@ -28,7 +28,7 @@ const RegisterForm = () => {
             <div  className='flex flex-col gap-[1vh]'>
                 <div className='flex gap-[5%]'>
                     <label htmlFor="inputPassword">username</label>
-                    <input className='border w-[100%]' type="text" name="inputUsername" />
+                    <input className='border w-[100%]' type="text" name="inputUsername" pattern="^\S+$" title="Keine Leerzeichen erlaubt"/>
                 </div>
                 <div className='flex gap-[5%]'>
                     <label htmlFor="inputPassword">password</label>
