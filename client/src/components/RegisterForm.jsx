@@ -22,6 +22,12 @@ const RegisterForm = () => {
     const navLogin = () =>{
         navigate('/login')
     }
+    const navAGB = () =>{
+        navigate('/agb')
+    }
+    const navDsvo = () =>{
+        navigate('/dsvo')
+    }
     return (
     
         <form className="flex flex-col justify-center gap-[5%] items-center w-[90%] h-[25%] bg-[var(--secondary-colour)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 " onSubmit={login}>
@@ -38,6 +44,7 @@ const RegisterForm = () => {
             </div>
 
             <button className="bg-[var(--primary-colour)] w-[30%] hover:bg-[var(--primary-colour-acsent)] text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300">Register</button>
+            <p className='text-xs'>Durch das Klicken von Register akzptieren Sie unsere  <span onClick={navAGB} className='underline'>AGB</span> und <span onClick={navDsvo} className='underline'>Datenschutzvereinbarung</span></p>
         </form>
   )
 }

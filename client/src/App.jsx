@@ -12,6 +12,8 @@ import ScoreBoard from './pages/ScoreBoard'
 import Test from './components/Test'
 import RegisterPage from './pages/RegisterPage'
 import UserSettingPage from './pages/UserSettingPage'
+import AGB from './pages/AGB'
+import Datenschutz from './pages/Datenschutz'
 
 function App() {
   
@@ -30,6 +32,8 @@ function App() {
         <Route path="/selectQuiz" element= {<SelectQuiz/>}/>
         <Route path="/scoreBoard/quiz/:quizId/session/:sessionId" element={<ScoreBoard />} />
         <Route path="/test" element={<Test />} />        
+        <Route path="/agb" element={<AGB />} />
+        <Route path="/dsvo" element={<Datenschutz />} />
       </Routes>
     </>
   )
