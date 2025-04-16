@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import SelectQuizCard from '../components/SelectQuizCard'
 import { getEveryQuiz } from '../functions/fetches/getEveryQuiz'
 import Nav from '../components/Nav'
+import { useNavigate } from 'react-router-dom'
 
 const SelectQuiz = () => {
     const [quizzes, setQuizzes] = useState([])
-
+    const navigate = useNavigate()
     useEffect(()=>{
         const getQuizzes = async()=>{
             const data = await getEveryQuiz()
@@ -14,6 +15,9 @@ const SelectQuiz = () => {
         getQuizzes()
         
     },[])
+    const navAddQuiz = ()=>{
+        navigate('/addQuiz')
+    }
     return (
         <div className=''>
             <Nav/>
@@ -24,6 +28,7 @@ const SelectQuiz = () => {
                         return <SelectQuizCard key={index} quiz={quiz} />
                     })
                 }
+                <div className=' text-[var(--secondary-colour)] mb-[2.5%] text-[2rem] border w-fit p-[2.5%] text-[var(--secondary-colour)]  text-[1.5rem]' onClick={navAddQuiz}>add Quiz</div>
             </div>
 
         </div>

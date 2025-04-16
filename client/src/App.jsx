@@ -14,6 +14,8 @@ import RegisterPage from './pages/RegisterPage'
 import UserSettingPage from './pages/UserSettingPage'
 import AGB from './pages/AGB'
 import Datenschutz from './pages/Datenschutz'
+import AddQuiz from './pages/AddQuiz'
+import AddCategory from './pages/AddCategory'
 
 function App() {
   
@@ -34,6 +36,8 @@ function App() {
         <Route path="/test" element={<Test />} />        
         <Route path="/agb" element={<AGB />} />
         <Route path="/dsvo" element={<Datenschutz />} />
+        <Route path="/addQuiz" element={<AddQuiz/>}/>
+        <Route path="/addCategories/quiz/:quizId" element={<AddCategory/>}/>
       </Routes>
     </>
   )

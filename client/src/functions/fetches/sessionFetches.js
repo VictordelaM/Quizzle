@@ -12,7 +12,7 @@ export const addQuiz = async (title) => {
         body: JSON.stringify(bodyData),
         });
         if (!response.ok) {
-        throw new Error('Fehler beim Hinzufügen der Session');
+        throw new Error('Fehler beim Hinzufügen des Quizzes');
         }
 
         const data = await response.json();

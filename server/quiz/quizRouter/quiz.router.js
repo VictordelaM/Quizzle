@@ -19,6 +19,7 @@ import { getSessionData } from "../quizController/getSessionData.js";
 import { checkRepeatAnswer, checkRepeatParticipant } from "../../middleware/checkRepeat.js";
 import { deleteOpenCategory } from "../quizController/deleteOpenCategory.js";
 import { getOpenCategories } from "../quizController/getOpenCategories.js";
+import { addCompleteQuiz } from "../quizController/addCompleteQuiz.js";
 
 const quizRouter = express.Router()
 const mult = multer({ storage: multer.memoryStorage() })
@@ -40,6 +41,7 @@ quizRouter.delete("/deleteCategory/:quizId/:categoryId", mult.none(), deleteCate
 quizRouter.delete("/deleteQuizByID/:id", mult.none(), deleteQuizByID)
 
 //!POST
+quizRouter.post("/addCompleteQuiz", mult.none(), addCompleteQuiz) //body: title categories (with questions)
 quizRouter.post("/addQuiz", mult.none(), addQuiz) //body: title
 quizRouter.post("/createSession/quiz/:quizId", mult.none(), createSession)
 quizRouter.post("/addCategoryToQuiz/:quizId", mult.none(), addCategoryToQuiz)//body: categoryName
