@@ -15,6 +15,7 @@ import UserSettingPage from './pages/UserSettingPage'
 import AGB from './pages/AGB'
 import Datenschutz from './pages/Datenschutz'
 import AddQuiz from './pages/AddQuiz'
+import FeedbackPage from './pages/FeedbackPage'
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/agb" element={<AGB />} />
         <Route path="/dsvo" element={<Datenschutz />} />
         <Route path="/addQuiz" element={<AddQuiz/>}/>
+        <Route path="/feedback" element={<FeedbackPage/>} />
       </Routes>
     </>
   )
