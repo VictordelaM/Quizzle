@@ -66,7 +66,22 @@ const Guesses = ({ activeQuestion, winners, showWinners }) => {
                         </div>
                         <div className='flex flex-col items-center'>
                             <p className='answer'>{visibleAnswers[index] !== undefined ? visibleAnswers[index] : null}</p>
-                            <img src={answer?.userImg} alt="Italian Trulli" className="relative inline-block h-12 w-12 !rounded-full  object-cover object-center bg-[var(--secondary-colour)]" onClick={() => handleShowAnswerClick(index, answer.answer)}/>
+                            {answer?.userImg ? (
+                            <img
+                                src={answer.userImg}
+                                alt="User Avatar"
+                                className="relative inline-block h-12 w-12 rounded-full object-cover object-center bg-[var(--secondary-colour)]"
+                                onClick={() => handleShowAnswerClick(index, answer.answer)}
+                            />
+                            ) : (
+                            <div
+                                className="relative inline-flex items-center justify-center h-12 w-12 rounded-full bg-[var(--secondary-colour)] text-[var(--primary-colour)] text-lg font-bold uppercase"
+                                onClick={() => handleShowAnswerClick(index, answer.answer)}
+                            >
+                                {answer?.username?.[0] ?? "?"}
+                            </div>
+                            )}
+
                             <p className="username">{answer?.username}</p> 
 
                             {showWinners && (() => {

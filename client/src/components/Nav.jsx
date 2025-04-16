@@ -49,7 +49,19 @@ const Nav = () => {
             />
             <div className='userCard flex justify-center items-center gap-[5%]' onClick={navSettings}>
                 <p className='text-[1.25rem]'>{user?.username}</p>
-                <img className="relative inline-block h-6 w-6 !rounded-full  object-cover object-center " src={user?.pictureUrl} alt="no img"/>       
+                {user?.pictureUrl ? (
+                            <img
+                                src={user?.pictureUrl}
+                                alt="User Avatar"
+                                className="relative inline-block h-12 w-12 rounded-full object-cover object-center bg-[var(--secondary-colour)]"
+                            />
+                            ) : (
+                            <div
+                                className="relative inline-flex items-center justify-center h-12 w-12 rounded-full bg-[var(--primary-colour)] text-[var(--secondary-colour)] text-lg font-bold uppercase"
+                            > 
+                                {user?.username?.[0] ?? "?"}
+                            </div>
+                            )}
             </div>
         </div>
         

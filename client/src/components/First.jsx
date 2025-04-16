@@ -6,13 +6,6 @@ import { deleteOpenCategory } from "../functions/fetches/openCategoriesFetches";
 const First = ({categoryId, quiz, sessionId}) => {
     const navigate = useNavigate()
 
-    const deleteCat = () => {
-
-    }
-
-
-
-
 
     const setFirstQuestion = () =>{
         const category = quiz?.categories?.find(cat => cat.categoryId === categoryId);
