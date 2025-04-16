@@ -6,6 +6,7 @@ import quizRouter from "./quiz/quizRouter/quiz.router.js";
 import userRouter from "./user/userRouter/userRouter.js";
 import cookieParser from "cookie-parser";
 import { v2 as cloudinary } from "cloudinary";
+import feedbackRouter from "./feedback/router/feedback.router.js";
 
 
 await mongoose.connect(process.env.MOGODB_URI)
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/user', userRouter)
 app.use('/quiz', quizRouter)
+app.use('/feedback', feedbackRouter)
 
 
 app.listen(PORT, () => {
