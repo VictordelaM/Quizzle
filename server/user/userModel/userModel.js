@@ -21,8 +21,26 @@ const userSchema =new Schema({
     // },
     // verificationCode:{
     //     type:String,
-    //     default:""
+    //     
     // },
+    invites:[{//!
+        quizId: String,
+        sessionId: String,
+        sessionName: String,
+        quizTitle: String,
+        quizOwner: String,
+        from: String,
+    }],
+    ownQuizzes:[{//!
+        quizId: String,
+        quizTitle: String,
+    }],
+    participatedSessions:[{//!
+        quizId: String,
+        quizTitle: String,
+        sessionId: String,
+        sessionName: String,
+    }],
     pictureUrl:{
         type: String,
     },

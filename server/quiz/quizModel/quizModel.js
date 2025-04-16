@@ -4,6 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 const quizSchema = new Schema({
     quizId: { type: String, default: uuidv4, unique: true, required: true }, 
     title: { type: String, required: true },
+    description: { type: String },//!
+    imgLink: { type: String }, //!
+    owner: { type: String, required: true },//!
+    rating:[{//!
+        userId: { type: String },
+        rating: { type: Number, required: true }
+    }],
     categories: [{
         categoryName: { type: String, required: true },
         categoryId: { type: String, default: uuidv4, required: true }, 
@@ -21,6 +28,19 @@ const quizSchema = new Schema({
     }],
     sessions:[{
         sessionId:{ type: String, default: uuidv4, required: true  },
+        moderator: { type: String, required: true },//!
+        sessionName: { type: String },//!
+        invites: [{ username :{type: String} }],//!
+        settings: {
+            participatLimit: { type: Number },//!
+            onlyInvited: { type: Boolean },//!
+            showPoints: { type: Boolean },//!
+            joker: { type: Boolean },//!
+            jokerNumber: { type: Number },//!
+            sessionImg: { type: String },//!
+            passwordRequired: { type: Boolean },//!
+            passwordHash: { type: String },//!
+        },
         participants:[{
             username: { type: String },
             userId: { type: String },

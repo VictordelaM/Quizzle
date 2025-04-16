@@ -48,7 +48,7 @@ const FeedbackPage = () => {
                     ></textarea>
                 </div>
                 <div className="flex items-center gap-2">
-                    <input type="checkbox" name="anonym" id="anonym" />
+                    <input type="checkbox" name="anonym" id="anonym" className=" accent-[var(--primary-colour)]" />
                     <label htmlFor="anonym" className="font-medium">Feedback anonym senden</label>
                 </div>
                 <button

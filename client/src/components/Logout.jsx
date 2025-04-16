@@ -5,7 +5,7 @@ const Logout = () => {
         document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
     return (
-            <button onClick={handleLogout} className='border w-[30%]'>logout</button>
+            <button onClick={handleLogout} className='border w-fit px-[5%]'>logout</button>
     )
 }
 

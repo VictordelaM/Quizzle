@@ -32,10 +32,9 @@ const Index = () => {
         getQuizData()
     },[])
     
-    if(!user){
-        navigate('/login')
-    }
-    if(!user?.pictureUrl)return <AddImg/>
+    // if(!user){
+    //     navigate('/login')
+    // }
     const nav = () =>{
         navigate('/selectQuiz')
     }
