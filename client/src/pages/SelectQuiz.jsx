@@ -21,14 +21,14 @@ const SelectQuiz = () => {
     return (
         <div className=''>
             <Nav/>
-            <div className="flex flex-col text-center items-center p-[10%] gap-[5%] h-[95vh]  bg-[var(--primary-colour)]">
+            <div className="flex flex-col text-center items-center p-[10%] gap-[2vh]  min-h-[95vh]  bg-[var(--primary-colour)]">
                 <h3 className=' text-[var(--secondary-colour)] mb-[2.5%] text-[2rem]'>Verfügbare Quizzes:</h3>
                 {
                     quizzes?.map((quiz, index)=>{
                         return <SelectQuizCard key={index} quiz={quiz} />
                     })
                 }
-                <div className=' text-[var(--secondary-colour)] mb-[2.5%] text-[2rem] border w-fit p-[2.5%] text-[var(--secondary-colour)]  text-[1.5rem]' onClick={navAddQuiz}>add Quiz</div>
+                <div className=' text-[var(--secondary-colour)] mb-[2.5%] text-[2rem] border w-fit p-[2.5%] text-[var(--secondary-colour)]  text-[1.5rem] my-[10vh]' onClick={navAddQuiz}>add Quiz</div>
             </div>
 
         </div>
