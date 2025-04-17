@@ -8,7 +8,7 @@ import { imageUpload } from "../userController/imageUpload.js";
 import { getUserImg, getUserImgById } from "../userController/getUserImg.js";
 import { checkRepeatName } from "../../middleware/checkRepeat.js";
 import { addOwnQuizzes } from "../userController/addOwnQuizzes.js";
-import { addParticipatedSessions } from "../userController/addparticipatedSessions.js";
+import { addParticipatedSessions } from "../userController/addParticipatedSessions.js";
 import { getParticipatedSessions } from "../userController/getParticipatedSessions.js";
 import { getOwnQuizzes } from "../userController/getOwnQuizzes.js";
 
