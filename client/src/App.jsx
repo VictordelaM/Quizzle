@@ -16,7 +16,7 @@ import AGB from './pages/AGB'
 import Datenschutz from './pages/Datenschutz'
 import AddQuiz from './pages/AddQuiz'
 import FeedbackPage from './pages/FeedbackPage'
-import CreateSession from './pages/createSession'
+import CreateSession from './pages/CreateSession.jsx'
 import OwnContent from './pages/OwnContent'
 
 
