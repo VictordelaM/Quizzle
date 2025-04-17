@@ -6,7 +6,7 @@ const quizSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String },//!
     imgLink: { type: String }, //!
-    owner: { type: String, required: true },//!
+    owner: { type: String, required: true },
     rating:[{//!
         userId: { type: String },
         rating: { type: Number, required: true }
@@ -28,13 +28,12 @@ const quizSchema = new Schema({
     }],
     sessions:[{
         sessionId:{ type: String, default: uuidv4, required: true  },
-        moderator: { type: String, required: true },//!
-        sessionName: { type: String },//!
+        moderator: { type: String, required: true },
+        sessionName: { type: String },
         invites: [{ username :{type: String} }],//!
         settings: {
             participatLimit: { type: Number },//!
             onlyInvited: { type: Boolean },//!
-            showPoints: { type: Boolean },//!
             jokerNumber: { type: Number, default: 0 },//!
             sessionImg: { type: String },//!
             passwordRequired: { type: Boolean },//!
