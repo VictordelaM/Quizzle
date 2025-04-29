@@ -30,8 +30,8 @@ const FeedbackPage = () => {
                 <h2 className="text-2xl font-semibold">Bereits bekannte Issues</h2>
                 <ul className="list-disc list-inside space-y-1">
                 <li>Bilder sollen zu fragen, quizzes, und sessions hinzufügbar gemacht werden</li>
-                <li>[Platzhalter für Issue 2]</li>
-                <li>[Platzhalter für Issue 3]</li>
+                <li>Login leicht verbuggt</li>
+                <li>Entwickler zu attraktiv</li>
                 </ul>
             </div>
     
