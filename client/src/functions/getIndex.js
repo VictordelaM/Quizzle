@@ -4,8 +4,11 @@ import { getActiveQuestion } from "./getActivQuestion"
 
 export const getIndex = async(quizId,sessionId)=>{
         const responseAQ = await getActiveQuestion(quizId, sessionId)
+        console.log(responseAQ)
         const responseQuiz = await fetchQuizData(quizId)
+        console.log(responseQuiz)
         const category = responseQuiz?.categories?.find((cat)=>cat.categoryId == responseAQ?.categoryId) 
+        console.log(category)
         const length = category?.questions.length
         const index = category.questions.findIndex((question)=>question.questionId == responseAQ?.questionId)
 
