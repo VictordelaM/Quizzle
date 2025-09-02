@@ -30,7 +30,7 @@ const RegisterForm = () => {
     }
     return (
     
-        <form className="flex flex-col justify-center gap-[5%] items-center w-fit p-[5%] h-fit bg-[var(--secondary-colour)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 " onSubmit={login}>
+        <form className="flex flex-col justify-center gap-[5%] items-center w-[85%] p-[5%] h-fit bg-[var(--secondary-colour)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 " onSubmit={login}>
             <div  className='flex flex-col gap-[1vh]'>
                 <div className='flex gap-[5%]'>
                     <label htmlFor="inputPassword">username</label>
